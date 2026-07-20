@@ -786,3 +786,28 @@ LOGIN PAGE
     font-weight:bold;
     text-decoration:none;
 }
+/* ==========================
+GOOGLE LOGIN ICON
+========================== */
+
+.login-icon{
+    position:absolute;
+    right:20px;
+    top:20px;
+    width:45px;
+    height:45px;
+    border-radius:50%;
+    background:#ffffff;
+    border:2px solid #0d6efd;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    color:#0d6efd;
+    font-size:22px;
+    text-decoration:none;
+}
+
+.login-icon:hover{
+    background:#0d6efd;
+    color:#ffffff;
+}
