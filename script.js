@@ -42,3 +42,29 @@ qualityButtons.forEach(button => {
     });
 
 });
+// ==========================
+// LOGIN PAGE
+// ==========================
+
+const googleLogin = document.querySelector(".google-login");
+const skipLogin = document.querySelector(".skip-login");
+
+if (googleLogin) {
+
+    googleLogin.addEventListener("click", () => {
+
+        alert("Google Login will be connected later.");
+
+    });
+
+}
+
+if (skipLogin) {
+
+    skipLogin.addEventListener("click", () => {
+
+        window.location.href = "index.html";
+
+    });
+
+}
