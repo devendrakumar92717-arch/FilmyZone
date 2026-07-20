@@ -27,3 +27,18 @@ function changeBanner() {
 }
 
 setInterval(changeBanner, 4000);
+// ==========================
+// DOWNLOAD QUALITY BUTTONS
+// ==========================
+
+const qualityButtons = document.querySelectorAll(".download-quality button");
+
+qualityButtons.forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        alert("You selected: " + button.innerText);
+
+    });
+
+});
