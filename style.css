@@ -865,3 +865,31 @@ PROFILE PAGE
 .profile-page .google-login:hover{
     background:#084db5;
 }
+/* ==========================
+PROFILE BUTTONS
+========================== */
+
+.back-home-btn,
+.logout-btn{
+    display:block;
+    width:100%;
+    padding:15px;
+    margin-top:15px;
+    border:none;
+    border-radius:12px;
+    text-align:center;
+    text-decoration:none;
+    font-size:18px;
+    font-weight:bold;
+}
+
+.back-home-btn{
+    background:#0d6efd;
+    color:#fff;
+}
+
+.logout-btn{
+    background:#dc3545;
+    color:#fff;
+    cursor:pointer;
+}
