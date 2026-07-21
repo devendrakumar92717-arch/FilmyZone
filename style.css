@@ -1729,3 +1729,43 @@ button,
 img{
     display:block;
 }
+/* ==========================
+PART 19 - STEP 4
+MORE MENU
+========================== */
+
+.more-menu{
+    position:relative;
+    display:inline-block;
+}
+
+.menu-content{
+    display:none;
+    position:absolute;
+    right:0;
+    top:45px;
+    min-width:180px;
+    background:#ffffff;
+    border-radius:12px;
+    box-shadow:0 8px 20px rgba(0,0,0,.15);
+    z-index:999;
+    overflow:hidden;
+}
+
+.menu-content button{
+    width:100%;
+    padding:12px;
+    border:none;
+    background:#fff;
+    text-align:left;
+    cursor:pointer;
+}
+
+.menu-content button:hover{
+    background:#0d6efd;
+    color:#fff;
+}
+
+.more-menu.active .menu-content{
+    display:block;
+}
