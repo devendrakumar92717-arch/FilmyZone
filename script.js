@@ -83,3 +83,47 @@ window.addEventListener("load", () => {
     }
 
 });
+// ==========================
+// SHARE MOVIE
+// ==========================
+
+document.querySelectorAll(".share-btn").forEach(button=>{
+
+button.addEventListener("click",()=>{
+
+if(navigator.share){
+
+navigator.share({
+
+title:"FilmyZone",
+
+text:"Watch this movie on FilmyZone",
+
+url:window.location.href
+
+});
+
+}else{
+
+alert("Share is not supported on this device.");
+
+}
+
+});
+
+});
+// ==========================
+// COPY MOVIE LINK
+// ==========================
+
+document.querySelectorAll(".copy-btn").forEach(button => {
+
+    button.addEventListener("click", () => {
+
+        navigator.clipboard.writeText(window.location.href);
+
+        alert("✅ Movie Link Copied!");
+
+    });
+
+});
