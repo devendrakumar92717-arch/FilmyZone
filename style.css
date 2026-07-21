@@ -1204,3 +1204,66 @@ a{
 html{
     scroll-behavior:smooth;
 }
+/* ==========================
+PART 17 - STEP 1
+GLOBAL ANIMATIONS
+========================== */
+
+*{
+    transition:0.3s ease;
+}
+
+.movie-card:hover{
+    transform:translateY(-8px);
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+}
+
+.download-btn:hover,
+.google-login:hover,
+.back-home-btn:hover,
+.logout-btn:hover{
+    transform:scale(1.05);
+}
+
+.footer-social a:hover{
+    transform:rotate(10deg) scale(1.2);
+}
+/* ==========================
+PART 17 - STEP 2
+LOADER
+========================== */
+
+#loader{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    background:#0d6efd;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+}
+
+.loader-circle{
+    width:70px;
+    height:70px;
+    border:6px solid rgba(255,255,255,.3);
+    border-top:6px solid #fff;
+    border-radius:50%;
+    animation:spin 1s linear infinite;
+}
+
+#loader h2{
+    margin-top:20px;
+    color:#fff;
+    font-size:32px;
+}
+
+@keyframes spin{
+    100%{
+        transform:rotate(360deg);
+    }
+}
