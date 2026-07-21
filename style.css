@@ -1385,3 +1385,347 @@ a{
 a:hover{
     opacity:0.85;
 }
+/* ==========================
+PART 18 - STEP 1
+HEADER PREMIUM POLISH
+========================== */
+
+.header{
+    backdrop-filter:blur(12px);
+    box-shadow:0 4px 15px rgba(0,0,0,.12);
+}
+
+.search-box input{
+    border:2px solid transparent;
+    border-radius:12px;
+    transition:all .3s ease;
+}
+
+.search-box input:focus{
+    border-color:#0d6efd;
+    box-shadow:0 0 12px rgba(13,110,253,.35);
+    outline:none;
+}
+
+.search-box button{
+    border-radius:12px;
+}
+
+.profile-icon,
+.login-icon{
+    box-shadow:0 4px 12px rgba(0,0,0,.15);
+}
+/* ==========================
+PART 18 - STEP 2
+MOVIE CARD PREMIUM POLISH
+========================== */
+
+.movie-card{
+    border-radius:18px;
+    overflow:hidden;
+    background:#ffffff;
+    box-shadow:0 6px 18px rgba(0,0,0,.12);
+    transition:all .3s ease;
+}
+
+.movie-card:hover{
+    transform:translateY(-10px);
+    box-shadow:0 12px 28px rgba(0,0,0,.22);
+}
+
+.movie-card img{
+    border-bottom:2px solid #0d6efd;
+}
+
+.movie-card h3{
+    color:#0d6efd;
+    font-size:20px;
+    margin-top:12px;
+}
+
+.movie-card p{
+    color:#666;
+    font-size:15px;
+    margin-bottom:12px;
+}
+/* ==========================
+PART 18 - STEP 3
+DOWNLOAD BUTTON PREMIUM
+========================== */
+
+.download-btn{
+    background:linear-gradient(135deg,#0d6efd,#084db5);
+    color:#fff;
+    border:none;
+    border-radius:12px;
+    font-weight:bold;
+    letter-spacing:.5px;
+    box-shadow:0 5px 15px rgba(13,110,253,.35);
+}
+
+.download-btn:hover{
+    transform:translateY(-2px);
+    box-shadow:0 8px 20px rgba(13,110,253,.5);
+}
+
+.more-btn{
+    border-radius:12px;
+    background:#f5f5f5;
+}
+
+.more-btn:hover{
+    background:#0d6efd;
+    color:#fff;
+}
+/* ==========================
+PART 18 - STEP 4
+BANNER PREMIUM POLISH
+========================== */
+
+.banner{
+    border-radius:20px;
+    overflow:hidden;
+    box-shadow:0 10px 25px rgba(0,0,0,.20);
+}
+
+.banner img{
+    transition:transform .5s ease;
+}
+
+.banner:hover img{
+    transform:scale(1.03);
+}
+
+.prev,
+.next{
+    width:50px;
+    height:50px;
+    border-radius:50%;
+    background:rgba(13,110,253,.85);
+    color:#fff;
+    border:none;
+}
+
+.prev:hover,
+.next:hover{
+    background:#084db5;
+}
+
+.dots span{
+    width:12px;
+    height:12px;
+    border-radius:50%;
+    background:#fff;
+    opacity:.5;
+}
+
+.dots .active{
+    background:#0d6efd;
+    opacity:1;
+        }
+/* ==========================
+PART 18 - STEP 5
+SECTION TITLE PREMIUM
+========================== */
+
+.section-title{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    margin-bottom:20px;
+    padding:0 10px;
+}
+
+.section-title h2{
+    color:#0d6efd;
+    font-weight:700;
+    letter-spacing:.5px;
+}
+
+.section-title a{
+    color:#0d6efd;
+    text-decoration:none;
+    font-weight:bold;
+    padding:8px 16px;
+    border:2px solid #0d6efd;
+    border-radius:20px;
+    transition:.3s ease;
+}
+
+.section-title a:hover{
+    background:#0d6efd;
+    color:#ffffff;
+}
+/* ==========================
+PART 18 - STEP 6
+FOOTER PREMIUM POLISH
+========================== */
+
+.footer{
+    border-top:4px solid #ffffff20;
+}
+
+.footer h2{
+    font-weight:700;
+    letter-spacing:1px;
+}
+
+.footer-links a{
+    padding:8px 12px;
+    border-radius:10px;
+    transition:0.3s ease;
+}
+
+.footer-links a:hover{
+    background:rgba(255,255,255,0.15);
+}
+
+.footer-social a{
+    width:50px;
+    height:50px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    border-radius:50%;
+    background:rgba(255,255,255,0.15);
+}
+
+.footer-social a:hover{
+    background:#ffffff;
+    color:#0d6efd;
+}
+/* ==========================
+PART 18 - STEP 7
+PROFILE & SIMPLE PAGE POLISH
+========================== */
+
+.profile-page,
+.simple-page{
+    background:linear-gradient(180deg,#ffffff,#f8f9ff);
+    border:2px solid #e8eefc;
+}
+
+.profile-page img{
+    box-shadow:0 8px 20px rgba(13,110,253,.25);
+}
+
+.profile-page h2,
+.simple-page h1{
+    font-weight:700;
+}
+
+.profile-page p,
+.simple-page p{
+    line-height:1.8;
+    color:#555;
+}
+/* ==========================
+PART 18 - STEP 8
+NOTICE BAR & SEARCH PREMIUM
+========================== */
+
+.notice-bar{
+    border-radius:12px;
+    box-shadow:0 4px 12px rgba(0,0,0,.10);
+    overflow:hidden;
+}
+
+.notice-title{
+    font-weight:700;
+    letter-spacing:.5px;
+}
+
+.search-box{
+    background:#ffffff;
+    border-radius:14px;
+    box-shadow:0 5px 15px rgba(0,0,0,.12);
+    overflow:hidden;
+}
+
+.search-box input{
+    border:none;
+    background:transparent;
+}
+
+.search-box button{
+    background:#0d6efd;
+    color:#fff;
+}
+
+.search-box button:hover{
+    background:#084db5;
+}
+/* ==========================
+PART 18 - STEP 9
+FINAL PREMIUM FINISH
+========================== */
+
+body{
+    background:#f5f7fb;
+}
+
+.movies-section{
+    margin-top:30px;
+    padding:20px;
+    border-radius:18px;
+    background:#ffffff;
+    box-shadow:0 5px 15px rgba(0,0,0,.08);
+}
+
+.movie-buttons{
+    gap:10px;
+}
+
+.new-tag{
+    border-radius:8px;
+    font-size:12px;
+    font-weight:bold;
+    padding:5px 10px;
+    box-shadow:0 3px 8px rgba(255,0,0,.3);
+}
+/* ==========================
+PART 18 - FINAL STEP
+FINAL UI POLISH
+========================== */
+
+:root{
+    --primary:#0d6efd;
+    --primary-dark:#084db5;
+    --bg:#f5f7fb;
+    --card:#ffffff;
+    --text:#222;
+}
+
+body{
+    background:var(--bg);
+    color:var(--text);
+}
+
+button,
+.download-btn,
+.google-login,
+.back-home-btn,
+.logout-btn{
+    font-weight:600;
+    letter-spacing:.3px;
+}
+
+.movie-card,
+.banner,
+.profile-page,
+.simple-page,
+.footer,
+.notice-bar{
+    border-radius:18px;
+}
+
+.download-btn,
+.google-login,
+.back-home-btn,
+.logout-btn{
+    min-height:48px;
+}
+
+img{
+    display:block;
+}
