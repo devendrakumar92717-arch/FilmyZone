@@ -1267,3 +1267,87 @@ LOADER
         transform:rotate(360deg);
     }
 }
+/* ==========================
+PART 17 - STEP 3
+BUTTON RIPPLE EFFECT
+========================== */
+
+.download-btn,
+.google-login,
+.back-home-btn,
+.logout-btn{
+    position:relative;
+    overflow:hidden;
+}
+
+.download-btn:active,
+.google-login:active,
+.back-home-btn:active,
+.logout-btn:active{
+    transform:scale(0.97);
+}
+
+.movie-card{
+    cursor:pointer;
+}
+
+.movie-card img{
+    transition:transform .3s ease;
+}
+
+.movie-card:hover img{
+    transform:scale(1.05);
+}
+/* ==========================
+PART 17 - STEP 4
+FADE IN ANIMATION
+========================== */
+
+@keyframes fadeUp{
+    from{
+        opacity:0;
+        transform:translateY(25px);
+    }
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+.banner-slider,
+.notice-bar,
+.movies-section,
+.movie-details,
+.download-page,
+.profile-page,
+.footer{
+    animation:fadeUp .7s ease;
+}
+/* ==========================
+PART 17 - STEP 5
+SCROLL ANIMATION
+========================== */
+
+html{
+    scroll-behavior:smooth;
+}
+
+.section-title{
+    animation:fadeUp .8s ease;
+}
+
+.movie-card{
+    animation:fadeUp .6s ease;
+}
+
+.footer{
+    animation:fadeUp .8s ease;
+}
+
+button{
+    transition:all .3s ease;
+}
+
+button:hover{
+    filter:brightness(1.08);
+}
