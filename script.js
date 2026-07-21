@@ -127,3 +127,76 @@ document.querySelectorAll(".copy-btn").forEach(button => {
     });
 
 });
+// ==========================
+// MORE MENU OPEN/CLOSE
+// ==========================
+
+document.querySelectorAll(".more-btn").forEach(button => {
+
+    button.addEventListener("click", function(e){
+
+        e.stopPropagation();
+
+        document.querySelectorAll(".more-menu").forEach(menu=>{
+            if(menu !== this.parentElement){
+                menu.classList.remove("active");
+            }
+        });
+
+        this.parentElement.classList.toggle("active");
+
+    });
+
+});
+
+document.addEventListener("click",()=>{
+
+    document.querySelectorAll(".more-menu").forEach(menu=>{
+        menu.classList.remove("active");
+    });
+
+});
+// ==========================
+// SEARCH MOVIE
+// ==========================
+
+const searchInput = document.querySelector(".search-box input");
+
+if(searchInput){
+
+searchInput.addEventListener("keyup", function(){
+
+const value = this.value.toLowerCase();
+
+document.querySelectorAll(".movie-card").forEach(card=>{
+
+const title = card.querySelector("h3").textContent.toLowerCase();
+
+if(title.includes(value)){
+
+card.style.display="block";
+
+}else{
+
+card.style.display="none";
+
+}
+
+});
+
+});
+
+            }
+// ==========================
+// IMAGE ERROR HANDLING
+// ==========================
+
+document.querySelectorAll("img").forEach(img => {
+
+    img.onerror = function(){
+
+        this.src = "images/no-image.jpg";
+
+    };
+
+});
