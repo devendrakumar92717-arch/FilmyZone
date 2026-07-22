@@ -160,38 +160,34 @@ document.addEventListener("click",()=>{
     });
 
 });
-// ==========================
+
+/// ==========================
 // SEARCH MOVIE
 // ==========================
 
 const searchInput = document.querySelector(".search-box input");
 
-if(searchInput){
+if (searchInput) {
 
-searchInput.addEventListener("keyup", function(){
+    searchInput.addEventListener("keyup", function () {
 
-const value = this.value.toLowerCase();
+        const value = this.value.toLowerCase();
 
-document.querySelectorAll(".movie-card").forEach(card=>{
+        document.querySelectorAll(".movie-card").forEach(card => {
 
-const title = card.querySelector("h3").textContent.toLowerCase();
+            const title = card.querySelector("h3").textContent.toLowerCase();
 
-if(title.includes(value)){
-
-card.style.display="block";
-
-}else{
-
-card.style.display="none";
-
-}
-
-});
-
-});
-
+            if (title.includes(value)) {
+                card.style.display = "";
+            } else {
+                card.style.display = "none";
             }
-// ==========================
+
+        });
+
+    });
+
+}/ ==========================
 // IMAGE ERROR HANDLING
 // ==========================
 
