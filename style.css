@@ -1829,3 +1829,15 @@ DOWNLOAD SECTION
     font-weight:bold;
     margin-top:8px;
 }
+.close-btn{
+    float:right;
+    background:red;
+    color:white;
+    border:none;
+    width:35px;
+    height:35px;
+    border-radius:50%;
+    cursor:pointer;
+    font-size:18px;
+    margin-bottom:10px;
+}
