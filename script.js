@@ -196,3 +196,74 @@ window.onload = function () {
         loader.style.display = "none";
     }
 };
+// ==========================
+// PART 20 - STEP 3
+// PAGINATION
+// ==========================
+
+const movieCards = document.querySelectorAll("#latestMovieGrid .movie-card");
+
+const moviesPerPage = 20;
+
+let currentPage = 1;
+
+const prevBtn = document.getElementById("prevPage");
+const nextBtn = document.getElementById("nextPage");
+const pageNumber = document.getElementById("pageNumber");
+
+function showPage(page){
+
+    const start = (page - 1) * moviesPerPage;
+    const end = start + moviesPerPage;
+
+    movieCards.forEach((card,index)=>{
+
+        if(index >= start && index < end){
+
+            card.style.display = "";
+
+        }else{
+
+            card.style.display = "none";
+
+        }
+
+    });
+
+    pageNumber.textContent = "Page " + page;
+
+    prevBtn.disabled = (page === 1);
+
+    nextBtn.disabled = (end >= movieCards.length);
+
+}
+
+if(prevBtn && nextBtn){
+
+    prevBtn.addEventListener("click",()=>{
+
+        if(currentPage > 1){
+
+            currentPage--;
+
+            showPage(currentPage);
+
+        }
+
+    });
+
+    nextBtn.addEventListener("click",()=>{
+
+        if(currentPage * moviesPerPage < movieCards.length){
+
+            currentPage++;
+
+            showPage(currentPage);
+
+        }
+
+    });
+
+    showPage(currentPage);
+
+}
