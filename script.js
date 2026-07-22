@@ -303,3 +303,20 @@ qualityBtns.forEach(btn => {
     });
 
 });
+// ==========================
+// PART 21 - STEP 8
+// DOWNLOAD NOW
+// ==========================
+
+const downloadNowBtn = document.getElementById("downloadNowBtn");
+
+if(downloadNowBtn){
+
+    downloadNowBtn.addEventListener("click", () => {
+
+        // यहाँ अपनी Movie Download Link डालना
+        window.location.href = "movies/movie1.mp4";
+
+    });
+
+}
