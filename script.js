@@ -267,3 +267,39 @@ if(prevBtn && nextBtn){
     showPage(currentPage);
 
 }
+// ==========================
+// PART 21 - STEP 7
+// DOWNLOAD PROCESS
+// ==========================
+
+const qualityBtns = document.querySelectorAll(".download-quality button");
+const generateBox = document.getElementById("generateLinkBox");
+const readyBox = document.getElementById("downloadReadyBox");
+
+qualityBtns.forEach(btn => {
+
+    btn.addEventListener("click", () => {
+
+        if(generateBox){
+            generateBox.style.display = "block";
+        }
+
+        if(readyBox){
+            readyBox.style.display = "none";
+        }
+
+        setTimeout(() => {
+
+            if(generateBox){
+                generateBox.style.display = "none";
+            }
+
+            if(readyBox){
+                readyBox.style.display = "block";
+            }
+
+        }, 3000);
+
+    });
+
+});
