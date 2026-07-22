@@ -268,37 +268,45 @@ if(prevBtn && nextBtn){
 
 }
 // ==========================
-// PART 21 - STEP 7
-// DOWNLOAD PROCESS
+// PART 21 - STEP 11
+// DOWNLOAD PROGRESS
 // ==========================
 
 const qualityBtns = document.querySelectorAll(".download-quality button");
 const generateBox = document.getElementById("generateLinkBox");
 const readyBox = document.getElementById("downloadReadyBox");
+const progressBar = document.getElementById("progressBar");
+const progressText = document.getElementById("progressText");
 
 qualityBtns.forEach(btn => {
 
     btn.addEventListener("click", () => {
 
-        if(generateBox){
-            generateBox.style.display = "block";
-        }
+        generateBox.style.display = "block";
+        readyBox.style.display = "none";
 
-        if(readyBox){
-            readyBox.style.display = "none";
-        }
+        let progress = 0;
 
-        setTimeout(() => {
+        progressBar.style.width = "0%";
+        progressText.innerText = "0%";
 
-            if(generateBox){
+        const timer = setInterval(() => {
+
+            progress += 5;
+
+            progressBar.style.width = progress + "%";
+            progressText.innerText = progress + "%";
+
+            if(progress >= 100){
+
+                clearInterval(timer);
+
                 generateBox.style.display = "none";
-            }
-
-            if(readyBox){
                 readyBox.style.display = "block";
+
             }
 
-        }, 3000);
+        }, 150);
 
     });
 
@@ -316,6 +324,23 @@ if(downloadNowBtn){
 
         // यहाँ अपनी Movie Download Link डालना
         window.location.href = "movies/movie1.mp4";
+
+    });
+
+}
+// ==========================
+// PART 21 - STEP 12
+// CLOSE DOWNLOAD POPUP
+// ==========================
+
+const closeBtn = document.getElementById("closeDownloadPopup");
+const downloadQuality = document.querySelector(".download-quality");
+
+if(closeBtn && downloadQuality){
+
+    closeBtn.addEventListener("click",()=>{
+
+        downloadQuality.style.display="none";
 
     });
 
