@@ -187,7 +187,9 @@ if (searchInput) {
 
     });
 
-}/ ==========================
+}
+
+// ==========================
 // IMAGE ERROR HANDLING
 // ==========================
 
@@ -200,3 +202,9 @@ document.querySelectorAll("img").forEach(img => {
     };
 
 });
+window.onload = function () {
+    const loader = document.getElementById("loader");
+    if (loader) {
+        loader.style.display = "none";
+    }
+};
