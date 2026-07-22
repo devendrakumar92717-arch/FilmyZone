@@ -14,19 +14,23 @@ let currentBanner = 0;
 
 const bannerImage = document.querySelector(".banner img");
 
-function changeBanner() {
+if (bannerImage) {
 
-    currentBanner++;
+    function changeBanner() {
 
-    if (currentBanner >= banners.length) {
-        currentBanner = 0;
+        currentBanner++;
+
+        if (currentBanner >= banners.length) {
+            currentBanner = 0;
+        }
+
+        bannerImage.src = banners[currentBanner];
+
     }
 
-    bannerImage.src = banners[currentBanner];
+    setInterval(changeBanner, 4000);
 
 }
-
-setInterval(changeBanner, 4000);
 // ==========================
 // DOWNLOAD QUALITY BUTTONS
 // ==========================
