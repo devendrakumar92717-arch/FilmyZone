@@ -379,8 +379,8 @@ if (window.location.pathname.includes("generate-link.html")) {
 }
 function startDownload() {
 
-    alert("Download Started");
+    const movieLink = "movies/movie.mp4";
 
-    // यहाँ बाद में असली Movie Download Link लगेगी.
+    window.location.href = movieLink;
 
 }
