@@ -389,3 +389,43 @@ function toggleMenu(btn){
     btn.parentElement.classList.toggle("active");
 
 }
+function shareMovie() {
+
+    if (navigator.share) {
+
+        navigator.share({
+            title: "FilmyZone",
+            text: "Watch this movie on FilmyZone",
+            url: window.location.href
+        });
+
+    } else {
+
+        alert("Sharing is not supported on this device.");
+
+    }
+
+}
+
+function copyMovieLink() {
+
+    navigator.clipboard.writeText(window.location.href);
+
+    alert("Movie Link Copied Successfully ✅");
+
+}
+document.addEventListener("click", function(e){
+
+    const menus = document.querySelectorAll(".more-menu");
+
+    menus.forEach(menu=>{
+
+        if(!menu.contains(e.target)){
+
+            menu.classList.remove("active");
+
+        }
+
+    });
+
+});
