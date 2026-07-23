@@ -36,15 +36,23 @@
 <button id="closeDownloadPopup" class="close-btn">
     ✖
 </button>
-    <h3>Select Download Quality</h3>
+<div class="download-quality">
 
-    <button>720p HD</button>
+    <button onclick="selectQuality('720p')">
+        720p HD
+    </button>
 
-    <button>1080p Full HD</button>
+    <button onclick="selectQuality('1080p')">
+        1080p Full HD
+    </button>
 
-    <button>1440p (2K)</button>
+    <button onclick="selectQuality('1440p')">
+        1440p (2K)
+    </button>
 
-    <button>2160p (4K UHD)</button>
+    <button onclick="selectQuality('2160p')">
+        2160p (4K UHD)
+    </button>
 
 </div>
 <div id="generateLinkBox" style="display:none;">
