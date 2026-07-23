@@ -434,3 +434,8 @@ function closeMenu(btn){
     btn.closest(".more-menu").classList.remove("active");
 
 }
+function downloadMovie(){
+
+    window.location.href="movie.html";
+
+}
