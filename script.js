@@ -352,3 +352,28 @@ function selectQuality(quality) {
     localStorage.setItem("movieQuality", quality);
     window.location.href = "generate-link.html";
 }
+let progress = 0;
+
+if (window.location.pathname.includes("generate-link.html")) {
+
+    const bar = document.getElementById("progressBar");
+    const text = document.getElementById("progressText");
+
+    const timer = setInterval(() => {
+
+        progress += 2;
+
+        bar.style.width = progress + "%";
+        text.innerHTML = progress + "%";
+
+        if (progress >= 100) {
+
+            clearInterval(timer);
+
+            window.location.href = "download-ready.html";
+
+        }
+
+    },100);
+
+}
