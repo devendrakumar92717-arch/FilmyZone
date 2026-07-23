@@ -429,3 +429,8 @@ document.addEventListener("click", function(e){
     });
 
 });
+function closeMenu(btn){
+
+    btn.closest(".more-menu").classList.remove("active");
+
+}
