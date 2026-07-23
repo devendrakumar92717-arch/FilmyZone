@@ -384,3 +384,8 @@ function startDownload() {
     window.location.href = movieLink;
 
 }
+function toggleMenu(btn){
+
+    btn.parentElement.classList.toggle("active");
+
+}
