@@ -348,3 +348,7 @@ if(closeBtn && downloadQuality){
 function openDownloadPage() {
     window.location.href = "movie.html";
 }
+function selectQuality(quality) {
+    localStorage.setItem("movieQuality", quality);
+    window.location.href = "generate-link.html";
+}
