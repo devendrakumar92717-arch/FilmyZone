@@ -377,3 +377,10 @@ if (window.location.pathname.includes("generate-link.html")) {
     },100);
 
 }
+function startDownload() {
+
+    alert("Download Started");
+
+    // यहाँ बाद में असली Movie Download Link लगेगी.
+
+}
