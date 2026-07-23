@@ -345,3 +345,6 @@ if(closeBtn && downloadQuality){
     });
 
 }
+function openDownloadPage() {
+    window.location.href = "movie.html";
+}
