@@ -439,3 +439,17 @@ function downloadMovie(){
     window.location.href="movie.html";
 
 }
+function openMovie(movieName){
+
+    localStorage.setItem("movieName", movieName);
+
+    window.location.href = "movie.html";
+
+}
+const title = document.getElementById("movieTitle");
+
+if(title){
+
+    title.innerHTML = localStorage.getItem("movieName");
+
+}
