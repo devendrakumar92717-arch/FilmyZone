@@ -191,6 +191,7 @@ MOVIE SECTION
 }
 
 .movie-card{
+    width:100%;
     background:#fff;
     border-radius:15px;
     overflow:hidden;
@@ -1840,4 +1841,13 @@ DOWNLOAD SECTION
     cursor:pointer;
     font-size:18px;
     margin-bottom:10px;
+}
+.movies-section .movie-grid{
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:15px;
+}
+
+.movies-section .movie-card{
+    width:100%;
 }
