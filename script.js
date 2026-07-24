@@ -453,3 +453,22 @@ if(title){
     title.innerHTML = localStorage.getItem("movieName");
 
 }
+// ==========================
+// STEP 25 - SAVE MOVIE DATA
+// ==========================
+
+document.querySelectorAll(".movie-card").forEach(card => {
+
+    card.addEventListener("click", function () {
+
+        const movieTitle = this.querySelector("h3").innerText;
+        const movieImage = this.querySelector("img").src;
+        const movieCategory = this.querySelector("p").innerText;
+
+        localStorage.setItem("movieTitle", movieTitle);
+        localStorage.setItem("movieImage", movieImage);
+        localStorage.setItem("movieCategory", movieCategory);
+
+    });
+
+});
