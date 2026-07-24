@@ -483,3 +483,35 @@ if (movieTitleBox) {
     movieTitleBox.innerText = localStorage.getItem("movieTitle");
 
 }
+// ==========================
+// STEP 25 - MOVIE DETAILS PAGE
+// ==========================
+
+const movieTitle = document.getElementById("movieTitle");
+const movieImage = document.getElementById("movieImage");
+const movieCategory = document.getElementById("movieCategory");
+const movieCategoryInfo = document.getElementById("movieCategoryInfo");
+
+if (movieTitle) {
+
+    movieTitle.innerText = localStorage.getItem("movieTitle");
+
+}
+
+if (movieImage) {
+
+    movieImage.src = localStorage.getItem("movieImage");
+
+}
+
+if (movieCategory) {
+
+    movieCategory.innerText = localStorage.getItem("movieCategory");
+
+}
+
+if (movieCategoryInfo) {
+
+    movieCategoryInfo.innerText = localStorage.getItem("movieCategory");
+
+}
