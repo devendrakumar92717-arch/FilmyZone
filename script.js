@@ -472,3 +472,14 @@ document.querySelectorAll(".movie-card").forEach(card => {
     });
 
 });
+// ==========================
+// STEP 25 - SHOW MOVIE DETAILS
+// ==========================
+
+const movieTitleBox = document.getElementById("movieTitle");
+
+if (movieTitleBox) {
+
+    movieTitleBox.innerText = localStorage.getItem("movieTitle");
+
+}
