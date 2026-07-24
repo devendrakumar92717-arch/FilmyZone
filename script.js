@@ -345,8 +345,21 @@ if(closeBtn && downloadQuality){
     });
 
 }
-function openDownloadPage() {
+function openDownloadPage(button) {
+
+    const card = button.closest(".movie-card");
+
+    const title = card.querySelector("h3").innerText;
+    const image = card.querySelector("img").src;
+    const category = card.querySelector("p").innerText;
+
+    localStorage.setItem("movieTitle", title);
+    localStorage.setItem("movieImage", image);
+    localStorage.setItem("movieCategory", category);
+
     window.location.href = "movie.html";
+
+}
 }
 function selectQuality(quality) {
     localStorage.setItem("movieQuality", quality);
