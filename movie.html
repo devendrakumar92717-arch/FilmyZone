@@ -2,8 +2,11 @@
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Movie Details - FilmyZone</title>
 
     <link rel="stylesheet" href="style.css">
@@ -17,26 +20,43 @@
 
 <div class="movie-details-page">
 
-    <img src="images/latest/movie1.jpg" alt="Movie Poster">
+    <img id="movieImage"
+         src="images/latest/movie1.jpg"
+         alt="Movie Poster">
 
-    <h1 id="movieTitle">Movie Name</h1>
+    <h1 id="movieTitle">
+        Movie Name
+    </h1>
 
-    <p><strong>Genre:</strong> Action</p>
+    <p>
+        <strong>Genre:</strong>
+        <span id="movieCategory">
+            Action
+        </span>
+    </p>
 
-    <p><strong>Language:</strong> Hindi</p>
+    <p>
+        <strong>Language:</strong>
+        Hindi
+    </p>
 
-    <p><strong>Release:</strong> 2026</p>
+    <p>
+        <strong>Release:</strong>
+        2026
+    </p>
 
     <button class="download-btn">
+
         <i class="fa-solid fa-download"></i>
+
         Download Movie
+
     </button>
 <div class="download-quality">
-    
-<button id="closeDownloadPopup" class="close-btn">
-    ✖
-</button>
-<div class="download-quality">
+
+    <button id="closeDownloadPopup" class="close-btn">
+        ✖
+    </button>
 
     <button onclick="selectQuality('720p')">
         720p HD
@@ -55,28 +75,34 @@
     </button>
 
 </div>
+
 <div id="generateLinkBox" style="display:none;">
 
     <h3>🔗 Generating Download Link...</h3>
 
-    <p>Please wait 3-5 seconds...</p>
+    <p>Please wait 3–5 seconds...</p>
+
+    <div class="progress">
+
+        <div id="progressBar"></div>
+
+    </div>
+
+    <p id="progressText">0%</p>
 
 </div>
+
 <div id="downloadReadyBox" style="display:none;">
 
     <h3>✅ Download Link Generated Successfully</h3>
-<div class="progress">
 
-    <div id="progressBar"></div>
+    <button class="download-btn" id="downloadNowBtn">
 
-</div>
+        <i class="fa-solid fa-download"></i>
 
-<p id="progressText">0%</p>
-    
-<button class="download-btn" id="downloadNowBtn">
-    <i class="fa-solid fa-download"></i>
-    Download Now
-</button>
+        Download Now
+
+    </button>
 
 </div>
 <div class="movie-info">
@@ -85,7 +111,7 @@
 
     <div class="info-row">
         <span>🎭 Genre</span>
-        <span>Action, Drama</span>
+        <span id="movieCategoryInfo">Action, Drama</span>
     </div>
 
     <div class="info-row">
@@ -99,8 +125,10 @@
     </div>
 
 </div>
+
 </div>
 
+<script src="movies.js"></script>
 <script src="script.js"></script>
 
 </body>
