@@ -140,3 +140,146 @@ function copyMovieLink() {
     alert("Movie Link Copied ✅");
 
 }
+// ==========================================
+// DOWNLOAD + MOVIE DATA
+// PART 2 - A
+// ==========================================
+
+// Download Button
+function openDownloadPage(button){
+
+    const card = button.closest(".movie-card");
+
+    if(!card) return;
+
+    const title = card.querySelector("h3").innerText;
+    const image = card.querySelector("img").src;
+    const category = card.querySelector("p").innerText;
+
+    localStorage.setItem("movieTitle", title);
+    localStorage.setItem("movieImage", image);
+    localStorage.setItem("movieCategory", category);
+
+    window.location.href = "movie.html";
+
+}
+
+// ==============================
+// MOVIE DETAILS PAGE
+// ==============================
+
+const movieTitle = document.getElementById("movieTitle");
+const movieImage = document.getElementById("movieImage");
+const movieCategory = document.getElementById("movieCategory");
+const movieCategoryInfo = document.getElementById("movieCategoryInfo");
+
+if(movieTitle){
+
+    movieTitle.innerText =
+    localStorage.getItem("movieTitle") || "Movie Name";
+
+}
+
+if(movieImage){
+
+    movieImage.src =
+    localStorage.getItem("movieImage") || "";
+
+}
+
+if(movieCategory){
+
+    movieCategory.innerText =
+    localStorage.getItem("movieCategory") || "";
+
+}
+
+if(movieCategoryInfo){
+
+    movieCategoryInfo.innerText =
+    localStorage.getItem("movieCategory") || "";
+
+}
+// ==========================================
+// DOWNLOAD QUALITY
+// PART 2 - B
+// ==========================================
+
+function selectQuality(quality){
+
+    localStorage.setItem("movieQuality", quality);
+
+    const generateBox =
+    document.getElementById("generateLinkBox");
+
+    const readyBox =
+    document.getElementById("downloadReadyBox");
+
+    const progressBar =
+    document.getElementById("progressBar");
+
+    const progressText =
+    document.getElementById("progressText");
+
+    if(!generateBox) return;
+
+    generateBox.style.display = "block";
+
+    if(readyBox){
+
+        readyBox.style.display = "none";
+
+    }
+
+    let progress = 0;
+
+    const timer = setInterval(()=>{
+
+        progress += 5;
+
+        if(progressBar){
+
+            progressBar.style.width = progress + "%";
+
+        }
+
+        if(progressText){
+
+            progressText.innerText = progress + "%";
+
+        }
+
+        if(progress >= 100){
+
+            clearInterval(timer);
+
+            generateBox.style.display = "none";
+
+            if(readyBox){
+
+                readyBox.style.display = "block";
+
+            }
+
+        }
+
+    },150);
+
+}
+
+// ==============================
+// DOWNLOAD NOW
+// ==============================
+
+const downloadNowBtn =
+document.getElementById("downloadNowBtn");
+
+if(downloadNowBtn){
+
+    downloadNowBtn.addEventListener("click",()=>{
+
+        window.location.href = "movies/movie1.mp4";
+
+    });
+
+}
