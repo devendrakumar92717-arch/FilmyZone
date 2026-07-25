@@ -1850,3 +1850,61 @@ DOWNLOAD SECTION
 .movies-section .movie-card{
     width:100%;
 }
+
+/* ==========================================
+STEP 29 - DOWNLOAD BUTTON DESIGN
+========================================== */
+
+.generate-page{
+
+    max-width:450px;
+
+    margin:60px auto;
+
+    padding:25px;
+
+    text-align:center;
+
+}
+
+.generate-page h2{
+
+    color:#ffffff;
+
+    margin-bottom:40px;
+
+    font-size:28px;
+
+}
+
+.big-download-btn{
+
+    width:100%;
+
+    padding:18px;
+
+    border:none;
+
+    border-radius:15px;
+
+    background:#0d6efd;
+
+    color:#fff;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    box-shadow:0 8px 20px rgba(0,0,0,.35);
+
+    transition:.3s;
+
+}
+
+.big-download-btn:hover{
+
+    transform:scale(1.03);
+
+}
