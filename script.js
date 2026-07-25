@@ -359,26 +359,40 @@ function selectQuality(quality) {
     }
 
     let downloadLink = "";
+let qualityName = "";
 
-    if (quality === "720p") {
+if (quality === "720p") {
 
-        downloadLink = movie.download720;
+    downloadLink = movie.download720;
+    qualityName = "720p HD";
 
-    } else if (quality === "1080p") {
+} else if (quality === "1080p") {
 
-        downloadLink = movie.download1080;
+    downloadLink = movie.download1080;
+    qualityName = "1080p Full HD";
 
-    } else if (quality === "1440p") {
+} else if (quality === "1440p") {
 
-        downloadLink = movie.download1440;
+    downloadLink = movie.download1440;
+    qualityName = "1440p (2K)";
 
-    } else if (quality === "2160p") {
+} else if (quality === "2160p") {
 
-        downloadLink = movie.download2160;
+    downloadLink = movie.download2160;
+    qualityName = "2160p (4K UHD)";
 
-    }
+}
 
     localStorage.setItem("downloadLink", downloadLink);
+    const selectedQuality =
+document.getElementById("selectedQuality");
+
+if (selectedQuality) {
+
+    selectedQuality.innerHTML =
+    "Selected Quality : " + qualityName;
+
+}
 
     const generateBox = document.getElementById("generateLinkBox");
     const readyBox = document.getElementById("downloadReadyBox");
@@ -388,6 +402,14 @@ function selectQuality(quality) {
     generateBox.style.display = "block";
     readyBox.style.display = "none";
 
+    const readyTitle = readyBox.querySelector("h3");
+
+if (readyTitle) {
+
+    readyTitle.innerHTML =
+    "✅ " + qualityName + " Download Link Generated";
+
+}
     let progress = 0;
 
     progressBar.style.width = "0%";
