@@ -201,14 +201,6 @@ if(movieCategoryInfo){
 
 }
 
-
-
- 
-// ==============================
-// DOWNLOAD NOW
-// ==============================
-
-
 // ==========================
 // STEP 26 - FILE SIZE
 // ==========================
@@ -262,136 +254,19 @@ function selectQuality(quality) {
     }
 
     let downloadLink = "";
-let qualityName = "";
+    let qualityName = "";
 
-if (quality === "720p") {
+    if (quality === "720p") {
+        downloadLink = movie.download720;
+        qualityName = "720p HD";
+    } else if (quality === "1080p") {
+        downloadLink = movie.download1080;
+        qualityName = "1080p Full HD";
+    }
 
-    downloadLink = movie.download720;
-    qualityName = "720p HD";
+    localStorage.setItem("selectedQuality", qualityName);
+    localStorage.setItem("movieDownloadLink", downloadLink);
 
-} else if (quality === "1080p") {
-
-    downloadLink = movie.download1080;
-    qualityName = "1080p Full HD";
-
-} else if (quality === "1440p") {
-
-    downloadLink = movie.download1440;
-    qualityName = "1440p (2K)";
-
-} else if (quality === "2160p") {
-
-    downloadLink = movie.download2160;
-    qualityName = "2160p (4K UHD)";
-
-}
-
-    localStorage.setItem("downloadLink", downloadLink);
-    const selectedQuality =
-document.getElementById("selectedQuality");
-
-if (selectedQuality) {
-
-    selectedQuality.innerHTML =
-    "Selected Quality : " + qualityName;
-
-}
-
-    const generateBox = document.getElementById("generateLinkBox");
-    const readyBox = document.getElementById("downloadReadyBox");
-    const progressBar = document.getElementById("progressBar");
-    const progressText = document.getElementById("progressText");
-    const qualityBox = document.querySelector(".download-quality");
-
-if (qualityBox) {
-    qualityBox.style.display = "none";
-}
-    generateBox.style.display = "block";
-    readyBox.style.display = "none";
-    document.getElementById("tick720").innerHTML = "";
-document.getElementById("tick1080").innerHTML = "";
-document.getElementById("tick1440").innerHTML = "";
-document.getElementById("tick2160").innerHTML = "";
-
-if (quality === "720p") {
-    document.getElementById("tick720").innerHTML = " ✅";
-}
-
-if (quality === "1080p") {
-    document.getElementById("tick1080").innerHTML = " ✅";
-}
-
-if (quality === "1440p") {
-    document.getElementById("tick1440").innerHTML = " ✅";
-}
-
-if (quality === "2160p") {
-    document.getElementById("tick2160").innerHTML = " ✅";
-}
-
-    const readyTitle = readyBox.querySelector("h3");
-
-if (readyTitle) {
-
-    readyTitle.innerHTML =
-    "✅ " + qualityName + " Download Link Generated";
-
-}
-    let progress = 0;
-
-    progressBar.style.width = "0%";
-    progressText.innerText = "0%";
-
-    const timer = setInterval(() => {
-
-        progress += 5;
-
-        progressBar.style.width = progress + "%";
-        progressText.innerText = progress + "%";
-
-        if (progress >= 100) {
-
-            clearInterval(timer);
-
-            generateBox.style.display = "none";
-            readyBox.style.display = "block";
-
-        }
-
-    }, 120);
-
-}
-
-const downloadNowBtn = document.getElementById("downloadNowBtn");
-
-if (downloadNowBtn) {
-
-    downloadNowBtn.onclick = function () {
-
-        const link = localStorage.getItem("downloadLink");
-
-        if (link) {
-
-            window.location.href = link;
-
-        } else {
-
-            alert("Download Link Not Found!");
-
-        }
-
-    };
-
-}
-const downloadBtn = document.querySelector(".download-btn");
-const downloadQuality = document.querySelector(".download-quality");
-
-if (downloadBtn && downloadQuality) {
-
-    downloadBtn.addEventListener("click", function () {
-
-        downloadQuality.style.display = "block";
-
-    });
+    window.location.href = "generate-link.html";
 
 }
