@@ -283,3 +283,28 @@ if(downloadNowBtn){
     });
 
 }
+// ==========================
+// STEP 26 - FILE SIZE
+// ==========================
+
+const size480 = document.getElementById("size480");
+const size720 = document.getElementById("size720");
+const size1080 = document.getElementById("size1080");
+const size1440 = document.getElementById("size1440");
+const size2160 = document.getElementById("size2160");
+
+const currentMovie = movies.find(movie => movie.title === localStorage.getItem("movieTitle"));
+
+if (currentMovie) {
+
+    if (size480) size480.innerText = currentMovie.size480 || "Not Available";
+
+    if (size720) size720.innerText = currentMovie.size720 || "Not Available";
+
+    if (size1080) size1080.innerText = currentMovie.size1080 || "Not Available";
+
+    if (size1440) size1440.innerText = currentMovie.size1440 || "Not Available";
+
+    if (size2160) size2160.innerText = currentMovie.size2160 || "Not Available";
+
+}
