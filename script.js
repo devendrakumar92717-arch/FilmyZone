@@ -301,7 +301,11 @@ if (selectedQuality) {
     const readyBox = document.getElementById("downloadReadyBox");
     const progressBar = document.getElementById("progressBar");
     const progressText = document.getElementById("progressText");
+    const qualityBox = document.querySelector(".download-quality");
 
+if (qualityBox) {
+    qualityBox.style.display = "none";
+}
     generateBox.style.display = "block";
     readyBox.style.display = "none";
     document.getElementById("tick720").innerHTML = "";
