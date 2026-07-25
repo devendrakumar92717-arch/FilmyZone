@@ -19,39 +19,11 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 
 <div class="generate-page">
 
-    <img id="movieImage"
-         src=""
-         alt="Movie">
+    <button id="downloadNowBtn" class="big-download-btn">
 
-    <h2 id="movieTitle">
-        Loading...
-    </h2>
+    <i class="fa-solid fa-download"></i>
 
-    <h3 id="selectedQuality">
-        Quality
-    </h3>
-
-    <h3>
-        🔗 Generating Download Link...
-    </h3>
-
-    <div class="progress">
-
-        <div id="progressBar"></div>
-
-    </div>
-
-    <p id="progressText">
-        0%
-    </p>
-
-    <button id="downloadNowBtn"
-            class="download-btn"
-            style="display:none;">
-
-        <i class="fa-solid fa-download"></i>
-
-        Download Now
+    Download Now
 
     </button>
 
@@ -63,3 +35,40 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
 </body>
 
 </html>
+
+// ==========================================
+// STEP 29 - GENERATE LINK PAGE
+// ==========================================
+
+const generateMovieTitle = document.getElementById("movieTitle");
+const downloadNowBtn = document.getElementById("downloadNowBtn");
+
+if (generateMovieTitle) {
+
+    generateMovieTitle.innerText =
+    localStorage.getItem("movieTitle") || "Movie";
+
+}
+
+if (downloadNowBtn) {
+
+    downloadNowBtn.style.display = "block";
+
+    downloadNowBtn.onclick = function () {
+
+        const link =
+        localStorage.getItem("movieDownloadLink");
+
+        if (link) {
+
+            window.location.href = link;
+
+        } else {
+
+            alert("Download Link Not Found!");
+
+        }
+
+    };
+
+}
