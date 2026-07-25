@@ -379,3 +379,15 @@ if (downloadNowBtn) {
     };
 
 }
+const downloadBtn = document.querySelector(".download-btn");
+const downloadQuality = document.querySelector(".download-quality");
+
+if (downloadBtn && downloadQuality) {
+
+    downloadBtn.addEventListener("click", function () {
+
+        downloadQuality.style.display = "block";
+
+    });
+
+}
