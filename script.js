@@ -306,3 +306,15 @@ if (currentMovie) {
     if (size2160) size2160.innerText = currentMovie.size2160 || "Not Available";
 
 }
+const movieLanguage = document.getElementById("movieLanguage");
+const movieYear = document.getElementById("movieYear");
+
+if (currentMovie) {
+
+    if (movieLanguage)
+        movieLanguage.innerText = currentMovie.language || "Hindi";
+
+    if (movieYear)
+        movieYear.innerText = currentMovie.year || "2026";
+
+}
