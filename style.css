@@ -1925,3 +1925,48 @@ STEP 30 - DOWNLOAD INFO
     text-align:center;
 
 }
+/* ==========================================
+STEP 30 - FINAL PAGE DESIGN
+========================================== */
+
+body{
+
+    background:#0f172a;
+
+}
+
+.generate-page{
+
+    min-height:100vh;
+
+    display:flex;
+
+    flex-direction:column;
+
+    justify-content:center;
+
+    align-items:center;
+
+    padding:25px;
+
+}
+
+.generate-page h2{
+
+    color:#ffffff;
+
+    font-size:30px;
+
+    margin-bottom:15px;
+
+    text-align:center;
+
+}
+
+.big-download-btn{
+
+    max-width:380px;
+
+    width:100%;
+
+}
