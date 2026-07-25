@@ -201,12 +201,7 @@ if(movieCategoryInfo){
 
 }
 
-// =========================================
-// STEP 27 - PART 2
-// QUALITY DOWNLOAD SYSTEM
-// =========================================
 
-function selectQuality(quality) {
 
  
 // ==============================
@@ -328,7 +323,7 @@ if (quality === "1440p") {
 
 if (quality === "2160p") {
     document.getElementById("tick2160").innerHTML = " ✅";
-        }
+}
 
     const readyTitle = readyBox.querySelector("h3");
 
