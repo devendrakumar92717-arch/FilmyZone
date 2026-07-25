@@ -18,7 +18,13 @@ movies.push({
 
     size2160: "6.2 GB",
 
-    download: "movies/salaar.mp4"
+  download720: "movies/salaar-720p.mp4",
+
+download1080: "movies/salaar-1080p.mp4",
+
+download1440: "movies/salaar-2k.mp4",
+
+download2160: "movies/salaar-4k.mp4"  
 
 });
 
@@ -42,7 +48,13 @@ movies.push({
 
     size2160: "5.9 GB",
 
-    download: "movies/pathaan.mp4"
+    download720: "movies/pathaan-720p.mp4",
+
+download1080: "movies/pathaan-1080p.mp4",
+
+download1440: "movies/pathaan-2k.mp4",
+
+download2160: "movies/pathaan-4k.mp4"
 
 });
 
