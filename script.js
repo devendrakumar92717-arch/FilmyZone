@@ -204,66 +204,100 @@ if(movieCategoryInfo){
 // DOWNLOAD QUALITY
 // PART 2 - B
 // ==========================================
+// =========================================
+// STEP 27 - PART 2
+// QUALITY DOWNLOAD SYSTEM
+// =========================================
 
-function selectQuality(quality){
+function selectQuality(quality) {
 
-    localStorage.setItem("movieQuality", quality);
+    const movie = movies.find(
+        m => m.title === localStorage.getItem("movieTitle")
+    );
 
-    const generateBox =
-    document.getElementById("generateLinkBox");
+    if (!movie) {
+        alert("Movie not found!");
+        return;
+    }
 
-    const readyBox =
-    document.getElementById("downloadReadyBox");
+    let downloadLink = "";
 
-    const progressBar =
-    document.getElementById("progressBar");
+    switch (quality) {
 
-    const progressText =
-    document.getElementById("progressText");
+        case "720p":
+            downloadLink = movie.download720;
+            break;
 
-    if(!generateBox) return;
+        case "1080p":
+            downloadLink = movie.download1080;
+            break;
 
-    generateBox.style.display = "block";
+        case "1440p":
+            downloadLink = movie.download1440;
+            break;
 
-    if(readyBox){
+        case "2160p":
+            downloadLink = movie.download2160;
+            break;
 
-        readyBox.style.display = "none";
+        default:
+            alert("Invalid Quality!");
+            return;
 
     }
 
+    localStorage.setItem("downloadLink", downloadLink);
+
+    document.getElementById("generateLinkBox").style.display = "block";
+    document.getElementById("downloadReadyBox").style.display = "none";
+
     let progress = 0;
 
-    const timer = setInterval(()=>{
+    const bar = document.getElementById("progressBar");
+    const text = document.getElementById("progressText");
+
+    bar.style.width = "0%";
+    text.innerHTML = "0%";
+
+    const timer = setInterval(function () {
 
         progress += 5;
 
-        if(progressBar){
+        bar.style.width = progress + "%";
+        text.innerHTML = progress + "%";
 
-            progressBar.style.width = progress + "%";
-
-        }
-
-        if(progressText){
-
-            progressText.innerText = progress + "%";
-
-        }
-
-        if(progress >= 100){
+        if (progress >= 100) {
 
             clearInterval(timer);
 
-            generateBox.style.display = "none";
-
-            if(readyBox){
-
-                readyBox.style.display = "block";
-
-            }
+            document.getElementById("generateLinkBox").style.display = "none";
+            document.getElementById("downloadReadyBox").style.display = "block";
 
         }
 
-    },150);
+    }, 120);
+
+}
+
+const downloadNowBtn = document.getElementById("downloadNowBtn");
+
+if (downloadNowBtn) {
+
+    downloadNowBtn.onclick = function () {
+
+        const link = localStorage.getItem("downloadLink");
+
+        if (link) {
+
+            window.location.href = link;
+
+        } else {
+
+            alert("Download link not found!");
+
+        }
+
+    };
 
 }
 
@@ -271,18 +305,7 @@ function selectQuality(quality){
 // DOWNLOAD NOW
 // ==============================
 
-const downloadNowBtn =
-document.getElementById("downloadNowBtn");
 
-if(downloadNowBtn){
-
-    downloadNowBtn.addEventListener("click",()=>{
-
-        window.location.href = "movies/movie1.mp4";
-
-    });
-
-}
 // ==========================
 // STEP 26 - FILE SIZE
 // ==========================
@@ -316,5 +339,98 @@ if (currentMovie) {
 
     if (movieYear)
         movieYear.innerText = currentMovie.year || "2026";
+
+
+}
+// ==========================================
+// STEP 27 - PART 2 FINAL
+// DYNAMIC DOWNLOAD SYSTEM
+// ==========================================
+
+function selectQuality(quality) {
+
+    const movie = movies.find(
+        m => m.title === localStorage.getItem("movieTitle")
+    );
+
+    if (!movie) {
+        alert("Movie Not Found!");
+        return;
+    }
+
+    let downloadLink = "";
+
+    if (quality === "720p") {
+
+        downloadLink = movie.download720;
+
+    } else if (quality === "1080p") {
+
+        downloadLink = movie.download1080;
+
+    } else if (quality === "1440p") {
+
+        downloadLink = movie.download1440;
+
+    } else if (quality === "2160p") {
+
+        downloadLink = movie.download2160;
+
+    }
+
+    localStorage.setItem("downloadLink", downloadLink);
+
+    const generateBox = document.getElementById("generateLinkBox");
+    const readyBox = document.getElementById("downloadReadyBox");
+    const progressBar = document.getElementById("progressBar");
+    const progressText = document.getElementById("progressText");
+
+    generateBox.style.display = "block";
+    readyBox.style.display = "none";
+
+    let progress = 0;
+
+    progressBar.style.width = "0%";
+    progressText.innerText = "0%";
+
+    const timer = setInterval(() => {
+
+        progress += 5;
+
+        progressBar.style.width = progress + "%";
+        progressText.innerText = progress + "%";
+
+        if (progress >= 100) {
+
+            clearInterval(timer);
+
+            generateBox.style.display = "none";
+            readyBox.style.display = "block";
+
+        }
+
+    }, 120);
+
+}
+
+const downloadNowBtn = document.getElementById("downloadNowBtn");
+
+if (downloadNowBtn) {
+
+    downloadNowBtn.onclick = function () {
+
+        const link = localStorage.getItem("downloadLink");
+
+        if (link) {
+
+            window.location.href = link;
+
+        } else {
+
+            alert("Download Link Not Found!");
+
+        }
+
+    };
 
 }
