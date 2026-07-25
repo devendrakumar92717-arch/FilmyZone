@@ -59,31 +59,31 @@ color:#00e676;
 text-align:center;">
 No Quality Selected
     </p>
-    
+<button onclick="selectQuality('720p')" class="big-download-btn normal-btn">
+    🔵 Normal HD Download
+</button>
+
+<button onclick="selectQuality('1080p')" class="big-download-btn full-btn">
+    🟢 Full HD Download
+</button>
 <div class="download-quality">
 
-<button onclick="selectQuality('720p')">
-720p HD
-<span id="tick720"></span>
-</button>
+    <button class="big-download-btn normal-btn"
+        onclick="selectQuality('720p')">
 
-<button onclick="selectQuality('1080p')">
-1080p Full HD
-<span id="tick1080"></span>
-</button>
+        🔵 Normal HD Download
 
-<button onclick="selectQuality('1440p')">
-1440p (2K)
-<span id="tick1440"></span>
-</button>
+    </button>
 
-<button onclick="selectQuality('2160p')">
-2160p (4K UHD)
-<span id="tick2160"></span>
-</button>
+    <button class="big-download-btn full-btn"
+        onclick="selectQuality('1080p')">
+
+        🟢 Full HD Download
+
+    </button>
 
 </div>
-
+    
 <div id="generateLinkBox" style="display:none;">
 
     <h3>🔗 Generating Download Link...</h3>
@@ -104,57 +104,8 @@ No Quality Selected
 
     <h3>✅ Download Link Generated Successfully</h3>
 
-    <button class="download-btn" id="downloadNowBtn">
-
-        <i class="fa-solid fa-download"></i>
-
-        Download Now
-
-    </button>
-
 </div>
 <div class="movie-info">
-
-    <h2>Movie Information</h2>
-
-    <div class="info-row">
-        <span>🎭 Genre</span>
-        <span id="movieCategoryInfo">Action, Drama</span>
-    </div>
-
-    <div class="info-row">
-    <span>🌍 Language</span>
-    <span id="movieLanguage">Loading...</span>
-    </div>
-
-    <div class="info-row">
-    <span>📅 Release</span>
-    <span id="movieYear">Loading...</span>
-    </div>
-
-<div class="info-row">
-    <span>📦 720p HD</span>
-    <span id="size720">Loading...</span>
-</div>
-
-<div class="info-row">
-    <span>📦 1080p Full HD</span>
-    <span id="size1080">Loading...</span>
-</div>
-
-<div class="info-row">
-    <span>📦 1440p (2K)</span>
-    <span id="size1440">Loading...</span>
-</div>
-
-<div class="info-row">
-    <span>📦 2160p (4K UHD)</span>
-    <span id="size2160">Loading...</span>
-</div>
-    
-</div>
-
-</div>
 
 <script src="movies.js"></script>
 <script src="script.js"></script>
