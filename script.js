@@ -200,10 +200,7 @@ if(movieCategoryInfo){
     localStorage.getItem("movieCategory") || "";
 
 }
-// ==========================================
-// DOWNLOAD QUALITY
-// PART 2 - B
-// ==========================================
+
 // =========================================
 // STEP 27 - PART 2
 // QUALITY DOWNLOAD SYSTEM
@@ -211,96 +208,7 @@ if(movieCategoryInfo){
 
 function selectQuality(quality) {
 
-    const movie = movies.find(
-        m => m.title === localStorage.getItem("movieTitle")
-    );
-
-    if (!movie) {
-        alert("Movie not found!");
-        return;
-    }
-
-    let downloadLink = "";
-
-    switch (quality) {
-
-        case "720p":
-            downloadLink = movie.download720;
-            break;
-
-        case "1080p":
-            downloadLink = movie.download1080;
-            break;
-
-        case "1440p":
-            downloadLink = movie.download1440;
-            break;
-
-        case "2160p":
-            downloadLink = movie.download2160;
-            break;
-
-        default:
-            alert("Invalid Quality!");
-            return;
-
-    }
-
-    localStorage.setItem("downloadLink", downloadLink);
-
-    document.getElementById("generateLinkBox").style.display = "block";
-    document.getElementById("downloadReadyBox").style.display = "none";
-
-    let progress = 0;
-
-    const bar = document.getElementById("progressBar");
-    const text = document.getElementById("progressText");
-
-    bar.style.width = "0%";
-    text.innerHTML = "0%";
-
-    const timer = setInterval(function () {
-
-        progress += 5;
-
-        bar.style.width = progress + "%";
-        text.innerHTML = progress + "%";
-
-        if (progress >= 100) {
-
-            clearInterval(timer);
-
-            document.getElementById("generateLinkBox").style.display = "none";
-            document.getElementById("downloadReadyBox").style.display = "block";
-
-        }
-
-    }, 120);
-
-}
-
-const downloadNowBtn = document.getElementById("downloadNowBtn");
-
-if (downloadNowBtn) {
-
-    downloadNowBtn.onclick = function () {
-
-        const link = localStorage.getItem("downloadLink");
-
-        if (link) {
-
-            window.location.href = link;
-
-        } else {
-
-            alert("Download link not found!");
-
-        }
-
-    };
-
-}
-
+ 
 // ==============================
 // DOWNLOAD NOW
 // ==============================
@@ -401,6 +309,26 @@ if (selectedQuality) {
 
     generateBox.style.display = "block";
     readyBox.style.display = "none";
+    document.getElementById("tick720").innerHTML = "";
+document.getElementById("tick1080").innerHTML = "";
+document.getElementById("tick1440").innerHTML = "";
+document.getElementById("tick2160").innerHTML = "";
+
+if (quality === "720p") {
+    document.getElementById("tick720").innerHTML = " ✅";
+}
+
+if (quality === "1080p") {
+    document.getElementById("tick1080").innerHTML = " ✅";
+}
+
+if (quality === "1440p") {
+    document.getElementById("tick1440").innerHTML = " ✅";
+}
+
+if (quality === "2160p") {
+    document.getElementById("tick2160").innerHTML = " ✅";
+        }
 
     const readyTitle = readyBox.querySelector("h3");
 
