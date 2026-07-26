@@ -2087,3 +2087,9 @@ body{
     text-align: center;
     margin: 20px 0 35px;
 }
+.hd-btn i,
+.fullhd-btn i{
+    margin-right:10px;
+    font-size:18px;
+    color:#ffffff;
+}
