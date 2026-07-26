@@ -264,3 +264,45 @@ function selectQuality(quality) {
     window.location.href = "generate-link.html";
 
 }
+// ==========================================
+// STEP 32 - GENERATE LINK PAGE
+// ==========================================
+
+const pageMovieTitle = document.getElementById("movieTitle");
+const pageQuality = document.getElementById("selectedQuality");
+const downloadNowBtn = document.getElementById("downloadNowBtn");
+
+if (pageMovieTitle) {
+
+    pageMovieTitle.innerText =
+    localStorage.getItem("movieTitle") || "Movie";
+
+}
+
+if (pageQuality) {
+
+    pageQuality.innerText =
+    localStorage.getItem("selectedQuality") || "";
+
+}
+
+if (downloadNowBtn) {
+
+    downloadNowBtn.onclick = function () {
+
+        const link =
+        localStorage.getItem("movieDownloadLink");
+
+        if (link) {
+
+            window.location.href = link;
+
+        } else {
+
+            alert("Download Link Not Found!");
+
+        }
+
+    };
+
+}
