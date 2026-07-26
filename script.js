@@ -295,7 +295,23 @@ if (downloadNowBtn) {
 
         if (link) {
 
-            window.location.href = link;
+            downloadNowBtn.innerHTML =
+'<i class="fa-solid fa-spinner fa-spin"></i> Preparing Download...';
+
+downloadNowBtn.disabled = true;
+downloadNowBtn.style.cursor = "not-allowed";
+downloadNowBtn.style.opacity = "0.8";
+            
+setTimeout(() => {
+
+    downloadNowBtn.innerHTML =
+    '<i class="fa-solid fa-circle-check"></i> Download Started ✅';
+
+    downloadNowBtn.style.background = "#16a34a";
+
+    window.location.href = link;
+
+}, 2000);
 
         } else {
 
