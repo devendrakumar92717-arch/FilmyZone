@@ -2029,9 +2029,9 @@ STEP 31 FINAL DOWNLOAD BUTTON
     transform:scale(1.03);
 
 }
-.movie-title{
+#movieTitle{
 
-    color:#ffffff;
+    color:#ffffff !important;
 
     font-size:32px;
 
@@ -2040,5 +2040,7 @@ STEP 31 FINAL DOWNLOAD BUTTON
     text-align:center;
 
     margin:20px 0;
+
+    text-shadow:0 0 10px rgba(0,0,0,0.7);
 
 }
