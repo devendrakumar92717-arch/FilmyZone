@@ -2044,3 +2044,22 @@ STEP 31 FINAL DOWNLOAD BUTTON
     text-shadow:0 0 10px rgba(0,0,0,0.7);
 
 }
+/* ===== MOVIE TITLE FIX ===== */
+
+#movieTitle{
+    color:#ffffff !important;
+    font-size:34px !important;
+    font-weight:700 !important;
+    text-align:center !important;
+    margin:25px 0 !important;
+    display:block !important;
+    text-shadow:2px 2px 8px rgba(0,0,0,0.9);
+}
+
+.movie-details-page{
+    text-align:center;
+}
+
+.movie-details-page h1{
+    color:#ffffff !important;
+}
