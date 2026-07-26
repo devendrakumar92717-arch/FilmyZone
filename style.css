@@ -2063,3 +2063,27 @@ STEP 31 FINAL DOWNLOAD BUTTON
 .movie-details-page h1{
     color:#ffffff !important;
 }
+/* ==========================
+MOVIE PAGE BACKGROUND
+========================== */
+
+body{
+    background: linear-gradient(180deg, #111827, #1e293b);
+    color: #ffffff;
+    min-height: 100vh;
+}
+
+.movie-details-page{
+    max-width: 500px;
+    margin: 0 auto;
+    padding: 25px 20px;
+    background: transparent;
+}
+
+#movieTitle{
+    color: #ffffff;
+    font-size: 34px;
+    font-weight: 700;
+    text-align: center;
+    margin: 20px 0 35px;
+}
