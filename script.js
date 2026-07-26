@@ -204,7 +204,10 @@ const size1080 = document.getElementById("size1080");
 const size1440 = document.getElementById("size1440");
 const size2160 = document.getElementById("size2160");
 
-const currentMovie = movies.find(movie => movie.title === localStorage.getItem("movieTitle"));
+const allMovies = [...trendingMovies, ...latestMovies];
+
+const currentMovie = allMovies.find(movie =>
+    movie.title === localStorage.getItem("movieTitle"));
 
 if (currentMovie) {
 
