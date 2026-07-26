@@ -2029,3 +2029,16 @@ STEP 31 FINAL DOWNLOAD BUTTON
     transform:scale(1.03);
 
 }
+.movie-title{
+
+    color:#ffffff;
+
+    font-size:32px;
+
+    font-weight:700;
+
+    text-align:center;
+
+    margin:20px 0;
+
+}
