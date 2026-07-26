@@ -235,33 +235,25 @@ if (currentMovie) {
 // STEP 27 - PART 2 FINAL
 // DYNAMIC DOWNLOAD SYSTEM
 // ==========================================
-function selectQuality(quality) {
+function selectQuality(quality){
 
-    const movie = movies.find(
-        m => m.title === localStorage.getItem("movieTitle")
-    );
+    const btn = event.target;
 
-    if (!movie) {
-        alert("Movie Not Found!");
-        return;
-    }
+    btn.disabled = true;
+    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Preparing Download...';
 
-    let downloadLink = "";
+    setTimeout(() => {
 
-    if (quality === "720p") {
+        btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Download Started ✅';
 
-        downloadLink = movie.download720;
+        btn.style.background = "#16a34a";
 
-    } else if (quality === "1080p") {
+        // Future:
+        // File upload hone ke baad yahi download start hoga.
 
-        downloadLink = movie.download1080;
-
-    }
-
-    window.location.href = downloadLink;
+    }, 2000);
 
 }
-
 // ==========================================
 // STEP 32 - GENERATE LINK PAGE
 // ==========================================
