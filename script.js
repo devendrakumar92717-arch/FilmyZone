@@ -235,7 +235,6 @@ if (currentMovie) {
 // STEP 27 - PART 2 FINAL
 // DYNAMIC DOWNLOAD SYSTEM
 // ==========================================
-
 function selectQuality(quality) {
 
     const movie = movies.find(
@@ -248,22 +247,21 @@ function selectQuality(quality) {
     }
 
     let downloadLink = "";
-    let qualityName = "";
 
     if (quality === "720p") {
+
         downloadLink = movie.download720;
-        qualityName = "720p HD";
+
     } else if (quality === "1080p") {
+
         downloadLink = movie.download1080;
-        qualityName = "1080p Full HD";
+
     }
 
-    localStorage.setItem("selectedQuality", qualityName);
-    localStorage.setItem("movieDownloadLink", downloadLink);
-
-    window.location.href = "generate-link.html";
+    window.location.href = downloadLink;
 
 }
+
 // ==========================================
 // STEP 32 - GENERATE LINK PAGE
 // ==========================================
