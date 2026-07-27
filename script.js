@@ -79,13 +79,23 @@ if (searchInput) {
             const movieName =
                 card.querySelector("h3").innerText.toLowerCase();
 
-            if (movieName.includes(value)) {
+            const category =
+               card.querySelector("p").innerText.toLowerCase();
 
-                card.style.display = "";
+            const language =
+               card.querySelector(".movie-language").innerText.toLowerCase();
 
-            } else {
+            if (
+    movieName.includes(value) ||
+    category.includes(value) ||
+    language.includes(value)
+) {
 
-                card.style.display = "none";
+    card.style.display = "";
+
+} else {
+
+    card.style.display = "none";
 
             }
 
