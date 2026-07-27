@@ -148,12 +148,12 @@ function openDownloadPage(button){
 
     const title = card.querySelector("h3").innerText;
     const image = card.querySelector("img").src;
-    const category = card.querySelector("p").innerText;
-
+    const language = card.dataset.language;
+    
     localStorage.setItem("movieTitle", title);
     localStorage.setItem("movieImage", image);
-    localStorage.setItem("movieCategory", category);
-
+    localStorage.setItem("movieLanguage", language);
+    
     window.location.href = "movie.html";
 
 }
@@ -164,8 +164,14 @@ function openDownloadPage(button){
 
 const movieTitle = document.getElementById("movieTitle");
 const movieImage = document.getElementById("movieImage");
-const movieCategory = document.getElementById("movieCategory");
-const movieCategoryInfo = document.getElementById("movieCategoryInfo");
+const movieLanguage = document.getElementById("movieLanguage");
+
+if(movieLanguage){
+
+    movieLanguage.innerText =
+    "🌐 " + (localStorage.getItem("movieLanguage") || "Hindi");
+
+}
 
 if(movieTitle){
 
@@ -181,21 +187,7 @@ if(movieImage){
 
 }
 
-if(movieCategory){
-
-    movieCategory.innerText =
-    localStorage.getItem("movieCategory") || "";
-
-}
-
-if(movieCategoryInfo){
-
-    movieCategoryInfo.innerText =
-    localStorage.getItem("movieCategory") || "";
-
-}
-
-// ==========================
+ // ==========================
 // STEP 26 - FILE SIZE
 // ==========================
 
@@ -221,20 +213,8 @@ if (currentMovie) {
     if (size2160) size2160.innerText = currentMovie.size2160 || "Not Available";
 
 }
-const movieLanguage = document.getElementById("movieLanguage");
-const movieYear = document.getElementById("movieYear");
 
-if (currentMovie) {
-
-    if (movieLanguage)
-        movieLanguage.innerText = currentMovie.language || "Hindi";
-
-    if (movieYear)
-        movieYear.innerText = currentMovie.year || "2026";
-
-
-}
-// ==========================================
+ // ==========================================
 // STEP 27 - PART 2 FINAL
 // DYNAMIC DOWNLOAD SYSTEM
 // ==========================================
