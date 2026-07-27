@@ -220,6 +220,26 @@ if (currentMovie) {
 // ==========================================
 function selectQuality(quality){
 
+    if(!currentMovie){
+        alert("Movie Not Found!");
+        return;
+    }
+
+    let link = "";
+
+    if(quality === "720p"){
+        link = currentMovie.normalHD;
+    }
+
+    if(quality === "1080p"){
+        link = currentMovie.fullHD;
+    }
+
+    if(!link){
+        alert("Download Not Available!");
+        return;
+    }
+
     const btn = event.target;
 
     btn.disabled = true;
@@ -229,14 +249,11 @@ function selectQuality(quality){
 
         btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Download Started ✅';
 
-        btn.style.background = "#16a34a";
-
-        // Future:
-        // File upload hone ke baad yahi download start hoga.
+        window.location.href = link;
 
     }, 2000);
 
-}
+                                         }
 // ==========================================
 // STEP 32 - GENERATE LINK PAGE
 // ==========================================
