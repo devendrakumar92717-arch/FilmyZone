@@ -63,3 +63,7 @@ image:"images/latest/movie4.jpg"
 }
 
 ];
+const movies = [
+    ...trendingMovies,
+    ...latestMovies
+];
