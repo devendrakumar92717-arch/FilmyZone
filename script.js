@@ -414,3 +414,49 @@ if (latestGrid) {
     });
 
 }
+
+// ==========================================
+// VIEW ALL MOVIES PAGE
+// ==========================================
+
+const allMovieGrid = document.getElementById("allMovieGrid");
+
+if (allMovieGrid) {
+
+    allMovies.forEach(movie => {
+
+        allMovieGrid.innerHTML += `
+
+        <div class="movie-card"
+             data-language="${movie.language}">
+
+            <img src="${movie.image}" alt="${movie.title}">
+
+            <h3>${movie.title}</h3>
+
+            <p>${movie.category}</p>
+
+            <p class="movie-language">🌐 ${movie.language}</p>
+
+            <div class="movie-buttons">
+
+                <button class="download-btn"
+                        onclick="openDownloadPage(this)">
+                    <i class="fa-solid fa-download"></i>
+                    Download
+                </button>
+
+                <button class="more-btn"
+                        onclick="shareMovie()">
+                    <i class="fa-solid fa-share-nodes"></i>
+                </button>
+
+            </div>
+
+        </div>
+
+        `;
+
+    });
+
+}
