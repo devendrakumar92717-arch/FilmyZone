@@ -89,7 +89,10 @@ fullHD:"https://example.com/salaar1080"
 }
 
 ];
-const movies = [
+
+const allMovies = [
     ...trendingMovies,
     ...latestMovies
 ];
+
+const movies = allMovies;
