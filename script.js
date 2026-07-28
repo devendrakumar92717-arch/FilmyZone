@@ -474,3 +474,75 @@ function renderMovies() {
 
 }
 renderMovies();
+const prevBtn = document.getElementById("prevPage");
+const nextBtn = document.getElementById("nextPage");
+const pageNumber = document.getElementById("pageNumber");
+
+if (prevBtn && nextBtn) {
+
+    prevBtn.onclick = () => {
+
+        if (currentPage > 1) {
+
+            currentPage--;
+
+            renderMovies();
+
+            pageNumber.innerText = "Page " + currentPage;
+
+        }
+
+    };
+
+    nextBtn.onclick = () => {
+
+        if (currentPage * moviesPerPage < allMovies.length) {
+
+            currentPage++;
+
+            renderMovies();
+
+            pageNumber.innerText = "Page " + currentPage;
+
+        }
+
+    };
+
+}
+// ==========================================
+// VIEW ALL SEARCH
+// ==========================================
+
+const movieSearch = document.getElementById("movieSearch");
+
+if (movieSearch) {
+
+    movieSearch.addEventListener("keyup", function () {
+
+        const value = this.value.toLowerCase();
+
+        document.querySelectorAll("#allMovieGrid .movie-card").forEach(card => {
+
+            const title = card.querySelector("h3").innerText.toLowerCase();
+            const category = card.querySelector("p").innerText.toLowerCase();
+            const language = card.querySelector(".movie-language").innerText.toLowerCase();
+
+            if (
+                title.includes(value) ||
+                category.includes(value) ||
+                language.includes(value)
+            ) {
+
+                card.style.display = "";
+
+            } else {
+
+                card.style.display = "none";
+
+            }
+
+        });
+
+    });
+
+}
