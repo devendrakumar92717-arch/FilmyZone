@@ -423,7 +423,20 @@ const allMovieGrid = document.getElementById("allMovieGrid");
 
 if (allMovieGrid) {
 
-    allMovies.forEach(movie => {
+    const moviesPerPage = 50;
+let currentPage = 1;
+
+function renderMovies() {
+
+    allMovieGrid.innerHTML = "";
+
+    const start = (currentPage - 1) * moviesPerPage;
+
+    const end = start + moviesPerPage;
+
+    const pageMovies = allMovies.slice(start, end);
+
+    pageMovies.forEach(movie => {
 
         allMovieGrid.innerHTML += `
 
@@ -460,3 +473,4 @@ if (allMovieGrid) {
     });
 
 }
+renderMovies();
