@@ -331,7 +331,7 @@ const trendingGrid = document.getElementById("trendingMovieGrid");
 
 if (trendingGrid) {
 
-    trendingMovies.forEach(movie => {
+    trendingMovies.slice(0, 8).forEach(movie => {
 
         trendingGrid.innerHTML += `
 
@@ -378,7 +378,7 @@ const latestGrid = document.getElementById("latestMovieGrid");
 
 if (latestGrid) {
 
-    latestMovies.forEach(movie => {
+    latestMovies.slice(0, 20).forEach(movie => {
 
         latestGrid.innerHTML += `
 
