@@ -416,121 +416,177 @@ if (latestGrid) {
 }
 
 // ==========================================
-// VIEW ALL MOVIES PAGE (FIXED)
+// VIEW ALL MOVIES PAGE
+// FINAL v3.0
+// PART 1/4
 // ==========================================
 
 const allMovieGrid = document.getElementById("allMovieGrid");
 
+if (allMovieGrid) {
+
 const moviesPerPage = 50;
+
 let currentPage = 1;
 
-function renderMovies() {
+let filteredMovies = [...allMovies];
 
-    if (!allMovieGrid) return;
+function renderMovies(){
 
-    allMovieGrid.innerHTML = "";
+allMovieGrid.innerHTML = "";
 
-    const start = (currentPage - 1) * moviesPerPage;
-    const end = start + moviesPerPage;
+const start = (currentPage - 1) * moviesPerPage;
 
-    const pageMovies = allMovies.slice(start, end);
+const end = start + moviesPerPage;
+
+const pageMovies = filteredMovies.slice(start,end);
 
 pageMovies.forEach(movie => {
 
-    const movieCard = `
-    <div class="movie-card"
-         data-language="${movie.language}"
-         data-year="${movie.year || ""}">
+const movieCard = `
 
-        <img src="${movie.image}" alt="${movie.title}">
+<div class="movie-card"
+data-language="${movie.language}"
+data-year="${movie.year || ""}">
 
-        <h3>${movie.title}</h3>
+<img src="${movie.image}" alt="${movie.title}">
 
-        <p>${movie.category}</p>
+<h3>${movie.title}</h3>
 
-        <p class="movie-language">🌐 ${movie.language}</p>
+<p>${movie.category}</p>
 
-        <div class="movie-buttons">
+<p class="movie-language">🌐 ${movie.language}</p>
 
-            <button class="download-btn"
-                    onclick="openDownloadPage(this)">
-                <i class="fa-solid fa-download"></i>
-                Download
-            </button>
+<div class="movie-buttons">
 
-            <button class="more-btn"
-                    onclick="shareMovie()">
-                <i class="fa-solid fa-share-nodes"></i>
-            </button>
+<button
+class="download-btn"
+onclick="openDownloadPage(this)">
 
-        </div>
+<i class="fa-solid fa-download"></i>
 
-    </div>
-    `;
+Download
 
-    allMovieGrid.insertAdjacentHTML("beforeend", movieCard);
+</button>
+
+<button
+class="more-btn"
+onclick="shareMovie()">
+
+<i class="fa-solid fa-share-nodes"></i>
+
+</button>
+
+</div>
+
+</div>
+
+`;
+
+allMovieGrid.insertAdjacentHTML("beforeend", movieCard);
 
 });
-
-}
 
 const prevBtn = document.getElementById("prevPage");
 const nextBtn = document.getElementById("nextPage");
 const pageNumber = document.getElementById("pageNumber");
 
-function updatePagination() {
+function updatePagination(){
 
-    if (pageNumber) {
-        pageNumber.innerText = "Page " + currentPage;
-    }
+if(pageNumber){
 
-    if (prevBtn) {
-        prevBtn.disabled = (currentPage === 1);
-    }
+pageNumber.innerText =
+"Page " + currentPage;
 
-    if (nextBtn) {
-        nextBtn.disabled =
-            (currentPage * moviesPerPage >= allMovies.length);
-    }
+}
+
+if(prevBtn){
+
+prevBtn.disabled =
+(currentPage === 1);
+
+}
+
+if(nextBtn){
+
+nextBtn.disabled =
+(currentPage * moviesPerPage >= filteredMovies.length);
+
+}
+
+}
+
+if(prevBtn){
+
+prevBtn.onclick = function(){
+
+if(currentPage > 1){
+
+currentPage--;
+
+renderMovies();
+
+updatePagination();
+
+}
+
+};
+
+}
+
+if(nextBtn){
+
+nextBtn.onclick = function(){
+
+if(currentPage * moviesPerPage < filteredMovies.length){
+
+currentPage++;
+
+renderMovies();
+
+updatePagination();
+
+}
+
+};
+
 }
 
 renderMovies();
 updatePagination();
 
-if (prevBtn) {
+} // allMovieGrid END
 
-    prevBtn.onclick = function () {
+// ==========================================
+// VIEW ALL SEARCH (FINAL)
+// ==========================================
 
-        if (currentPage > 1) {
+const movieSearch = document.getElementById("movieSearch");
 
-            currentPage--;
+if (movieSearch) {
 
-            renderMovies();
-            updatePagination();
+    movieSearch.addEventListener("keyup", function () {
 
-        }
+        const value = this.value.toLowerCase();
 
-    };
+        filteredMovies = allMovies.filter(movie => {
+
+            return (
+                movie.title.toLowerCase().includes(value) ||
+                movie.category.toLowerCase().includes(value) ||
+                movie.language.toLowerCase().includes(value)
+            );
+
+        });
+
+        currentPage = 1;
+
+        renderMovies();
+        updatePagination();
+
+    });
 
 }
-
-if (nextBtn) {
-
-    nextBtn.onclick = function () {
-
-        if (currentPage * moviesPerPage < allMovies.length) {
-
-            currentPage++;
-
-            renderMovies();
-            updatePagination();
-
-        }
-
-    };
-
-}
-     
 // ==========================================
 // VIEW ALL SEARCH
 // ==========================================
