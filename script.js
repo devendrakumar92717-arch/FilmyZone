@@ -416,22 +416,21 @@ if (latestGrid) {
 }
 
 // ==========================================
-// VIEW ALL MOVIES PAGE
+// VIEW ALL MOVIES PAGE (FIXED)
 // ==========================================
 
 const allMovieGrid = document.getElementById("allMovieGrid");
 
-if (allMovieGrid) {
-
-    const moviesPerPage = 50;
+const moviesPerPage = 50;
 let currentPage = 1;
 
 function renderMovies() {
 
+    if (!allMovieGrid) return;
+
     allMovieGrid.innerHTML = "";
 
     const start = (currentPage - 1) * moviesPerPage;
-
     const end = start + moviesPerPage;
 
     const pageMovies = allMovies.slice(start, end);
