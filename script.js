@@ -472,13 +472,63 @@ function renderMovies() {
     });
 
 }
-renderMovies();
+
 const prevBtn = document.getElementById("prevPage");
 const nextBtn = document.getElementById("nextPage");
 const pageNumber = document.getElementById("pageNumber");
 
-if (prevBtn && nextBtn) {
+function updatePagination() {
 
+    if (pageNumber) {
+        pageNumber.innerText = "Page " + currentPage;
+    }
+
+    if (prevBtn) {
+        prevBtn.disabled = (currentPage === 1);
+    }
+
+    if (nextBtn) {
+        nextBtn.disabled =
+            (currentPage * moviesPerPage >= allMovies.length);
+    }
+}
+
+renderMovies();
+updatePagination();
+
+if (prevBtn) {
+
+    prevBtn.onclick = function () {
+
+        if (currentPage > 1) {
+
+            currentPage--;
+
+            renderMovies();
+            updatePagination();
+
+        }
+
+    };
+
+}
+
+if (nextBtn) {
+
+    nextBtn.onclick = function () {
+
+        if (currentPage * moviesPerPage < allMovies.length) {
+
+            currentPage++;
+
+            renderMovies();
+            updatePagination();
+
+        }
+
+    };
+
+}
     prevBtn.onclick = () => {
 
         if (currentPage > 1) {
@@ -522,9 +572,14 @@ if (movieSearch) {
 
         document.querySelectorAll("#allMovieGrid .movie-card").forEach(card => {
 
-            const title = card.querySelector("h3").innerText.toLowerCase();
-            const category = card.querySelector("p").innerText.toLowerCase();
-            const language = card.querySelector(".movie-language").innerText.toLowerCase();
+            const title =
+                card.querySelector("h3").innerText.toLowerCase();
+
+            const category =
+                card.querySelector("p").innerText.toLowerCase();
+
+            const language =
+                card.dataset.language.toLowerCase();
 
             if (
                 title.includes(value) ||
@@ -544,5 +599,4 @@ if (movieSearch) {
 
     });
 
-}
 }
