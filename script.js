@@ -530,35 +530,7 @@ if (nextBtn) {
     };
 
 }
-    prevBtn.onclick = () => {
-
-        if (currentPage > 1) {
-
-            currentPage--;
-
-            renderMovies();
-
-            pageNumber.innerText = "Page " + currentPage;
-
-        }
-
-    };
-
-    nextBtn.onclick = () => {
-
-        if (currentPage * moviesPerPage < allMovies.length) {
-
-            currentPage++;
-
-            renderMovies();
-
-            pageNumber.innerText = "Page " + currentPage;
-
-        }
-
-    };
-
-}
+     
 // ==========================================
 // VIEW ALL SEARCH
 // ==========================================
