@@ -1,481 +1,94 @@
-// ==============================
-// BANNER SLIDER
-// ==============================
+// =========================================
+// FILMY JOHN
+// script.js Final v1.0
+// Part 1/8
+// =========================================
 
-const banners = [
-    "images/banner1.jpg",
-    "images/banner2.jpg",
-    "images/banner3.jpg",
-    "images/banner4.jpg",
-    "images/banner5.jpg"
-];
+"use strict";
 
-let currentBanner = 0;
+// ===============================
+// GLOBAL VARIABLES
+// ===============================
 
-const bannerImage = document.querySelector(".banner img");
+const movieGrid =
+document.getElementById("allMovieGrid");
 
-if (bannerImage) {
+const trendingGrid =
+document.getElementById("trendingMovieGrid");
 
-    setInterval(() => {
+const latestGrid =
+document.getElementById("latestMovieGrid");
 
-        currentBanner++;
+const movieSearch =
+document.getElementById("movieSearch");
 
-        if (currentBanner >= banners.length) {
+const prevPage =
+document.getElementById("prevPage");
 
-            currentBanner = 0;
+const nextPage =
+document.getElementById("nextPage");
 
-        }
+const pageNumber =
+document.getElementById("pageNumber");
 
-        bannerImage.src = banners[currentBanner];
-
-    }, 4000);
-
-}
-
-// ==============================
-// LOADER
-// ==============================
-
-window.addEventListener("load", () => {
-
-    const loader = document.getElementById("loader");
-
-    if (loader) {
-
-        loader.style.display = "none";
-
-    }
-
-});
-
-// ==============================
-// IMAGE ERROR
-// ==============================
-
-document.querySelectorAll("img").forEach(img => {
-
-    img.onerror = function () {
-
-        this.src = "images/no-image.jpg";
-
-    };
-
-});
-
-// ==============================
-// SEARCH MOVIE
-// ==============================
-
-const searchInput = document.querySelector(".search-box input");
-
-if (searchInput) {
-
-    searchInput.addEventListener("keyup", function () {
-
-        const value = this.value.toLowerCase();
-
-        document.querySelectorAll(".movie-card").forEach(card => {
-
-            const movieName =
-                card.querySelector("h3").innerText.toLowerCase();
-
-            const category =
-               card.querySelector("p").innerText.toLowerCase();
-
-            const language =
-               card.querySelector(".movie-language").innerText.toLowerCase();
-
-            if (
-    movieName.includes(value) ||
-    category.includes(value) ||
-    language.includes(value)
-) {
-
-    card.style.display = "";
-
-} else {
-
-    card.style.display = "none";
-
-            }
-
-        });
-
-    });
-
-}
-
-// ==============================
-// SHARE BUTTON
-// ==============================
-
-function shareMovie() {
-
-    if (navigator.share) {
-
-        navigator.share({
-
-            title: document.title,
-
-            text: "Watch this Movie",
-
-            url: window.location.href
-
-        });
-
-    } else {
-
-        navigator.clipboard.writeText(window.location.href);
-
-        alert("Movie Link Copied Successfully ✅");
-
-    }
-
-}
-
-// ==============================
-// COPY LINK
-// ==============================
-
-function copyMovieLink() {
-
-    navigator.clipboard.writeText(window.location.href);
-
-    alert("Movie Link Copied ✅");
-
-}
-// ==========================================
-// DOWNLOAD + MOVIE DATA
-// PART 2 - A
-// ==========================================
-
-// Download Button
-function openDownloadPage(button){
-
-    const card = button.closest(".movie-card");
-
-    if(!card) return;
-
-    const title = card.querySelector("h3").innerText;
-    const image = card.querySelector("img").src;
-    const language = card.dataset.language;
-    
-    localStorage.setItem("movieTitle", title);
-    localStorage.setItem("movieImage", image);
-    localStorage.setItem("movieLanguage", language);
-    
-    window.location.href = "movie.html";
-
-}
-
-// ==============================
-// MOVIE DETAILS PAGE
-// ==============================
-
-const movieTitle = document.getElementById("movieTitle");
-const movieImage = document.getElementById("movieImage");
-const movieLanguage = document.getElementById("movieLanguage");
-
-if(movieLanguage){
-
-    movieLanguage.innerText =
-    "🌐 " + (localStorage.getItem("movieLanguage") || "Hindi");
-
-}
-
-if(movieTitle){
-
-    movieTitle.innerText =
-    localStorage.getItem("movieTitle") || "Movie Name";
-
-}
-
-if(movieImage){
-
-    movieImage.src =
-    localStorage.getItem("movieImage") || "";
-
-}
-
- // ==========================
-// STEP 26 - FILE SIZE
-// ==========================
-
-const size720 = document.getElementById("size720");
-const size1080 = document.getElementById("size1080");
-const size1440 = document.getElementById("size1440");
-const size2160 = document.getElementById("size2160");
-
-const allMovies = [...trendingMovies, ...latestMovies];
-
-const currentMovie = allMovies.find(movie =>
-    movie.title === localStorage.getItem("movieTitle"));
-
-if (currentMovie) {
-
-
-    if (size720) size720.innerText = currentMovie.size720 || "Not Available";
-
-    if (size1080) size1080.innerText = currentMovie.size1080 || "Not Available";
-
-    if (size1440) size1440.innerText = currentMovie.size1440 || "Not Available";
-
-    if (size2160) size2160.innerText = currentMovie.size2160 || "Not Available";
-
-}
-
- // ==========================================
-// STEP 27 - PART 2 FINAL
-// DYNAMIC DOWNLOAD SYSTEM
-// ==========================================
-function selectQuality(quality){
-
-    if(!currentMovie){
-        alert("Movie Not Found!");
-        return;
-    }
-
-    let link = "";
-
-    if(quality === "720p"){
-        link = currentMovie.normalHD;
-    }
-
-    if(quality === "1080p"){
-        link = currentMovie.fullHD;
-    }
-
-    if(!link){
-        alert("Download Not Available!");
-        return;
-    }
-
-    const btn = event.target;
-
-    btn.disabled = true;
-    btn.innerHTML = '<i class="fa-solid fa-spinner fa-spin"></i> Preparing Download...';
-
-    setTimeout(() => {
-
-        btn.innerHTML = '<i class="fa-solid fa-circle-check"></i> Download Started ✅';
-
-        window.location.href = link;
-
-    }, 2000);
-
-                                         }
-// ==========================================
-// STEP 32 - GENERATE LINK PAGE
-// ==========================================
-
-const pageMovieTitle = document.getElementById("movieTitle");
-const pageQuality = document.getElementById("selectedQuality");
-const downloadNowBtn = document.getElementById("downloadNowBtn");
-
-if (pageMovieTitle) {
-
-    pageMovieTitle.innerText =
-    localStorage.getItem("movieTitle") || "Movie";
-
-}
-
-if (pageQuality) {
-
-    pageQuality.innerText =
-    localStorage.getItem("selectedQuality") || "";
-
-}
-
-if (downloadNowBtn) {
-
-    downloadNowBtn.onclick = function () {
-
-        const link =
-        localStorage.getItem("movieDownloadLink");
-
-        if (link) {
-
-            downloadNowBtn.innerHTML =
-'<i class="fa-solid fa-spinner fa-spin"></i> Preparing Download...';
-
-downloadNowBtn.disabled = true;
-downloadNowBtn.style.cursor = "not-allowed";
-downloadNowBtn.style.opacity = "0.8";
-            
-setTimeout(() => {
-
-    downloadNowBtn.innerHTML =
-    '<i class="fa-solid fa-circle-check"></i> Download Started ✅';
-
-    downloadNowBtn.style.background = "#16a34a";
-
-    window.location.href = link;
-
-}, 2000);
-
-        } else {
-
-            alert("Download Link Not Found!");
-
-        }
-
-    };
-
-}
-
-// ==========================================
-// DYNAMIC TRENDING MOVIES
-// ==========================================
-
-const trendingGrid = document.getElementById("trendingMovieGrid");
-
-if (trendingGrid) {
-
-    trendingMovies.slice(0, 8).forEach(movie => {
-
-        trendingGrid.innerHTML += `
-
-        <div class="movie-card"
-     data-language="${movie.language}"
-     data-year="${movie.year}">
-
-            <img src="${movie.image}" alt="${movie.title}">
-
-            <h3>${movie.title}</h3>
-
-            <p>${movie.category}</p>
-
-            <p class="movie-language">🌐 ${movie.language}</p>
-
-            <div class="movie-buttons">
-
-                <button class="download-btn" onclick="openDownloadPage(this)">
-                    <i class="fa-solid fa-download"></i>
-                    Download
-                </button>
-
-                <button class="more-btn" onclick="shareMovie()">
-                    <i class="fa-solid fa-share-nodes"></i>
-                </button>
-
-            </div>
-
-        </div>
-
-        `;
-
-    });
-
-}
-
-
-
-// ==========================================
-// DYNAMIC LATEST MOVIES
-// ==========================================
-
-const latestGrid = document.getElementById("latestMovieGrid");
-
-if (latestGrid) {
-
-    latestMovies.slice(0, 20).forEach(movie => {
-
-        latestGrid.innerHTML += `
-
-        <div class="movie-card"
-     data-language="${movie.language}"
-     data-year="${movie.year}">
-
-            <img src="${movie.image}" alt="${movie.title}">
-
-            <h3>${movie.title}</h3>
-
-            <p>${movie.category}</p>
-
-            <p class="movie-language">🌐 ${movie.language}</p>
-
-            <div class="movie-buttons">
-
-                <button class="download-btn" onclick="openDownloadPage(this)">
-                    <i class="fa-solid fa-download"></i>
-                    Download
-                </button>
-
-                <button class="more-btn" onclick="shareMovie()">
-                    <i class="fa-solid fa-share-nodes"></i>
-                </button>
-
-            </div>
-
-        </div>
-
-        `;
-
-    });
-
-}
-
-// ==========================================
-// VIEW ALL MOVIES PAGE
-// FINAL v3.0
-// PART 1/4
-// ==========================================
-
-const allMovieGrid = document.getElementById("allMovieGrid");
-
-if (allMovieGrid) {
-
-const moviesPerPage = 50;
+// ===============================
+// PAGINATION
+// ===============================
 
 let currentPage = 1;
 
-let filteredMovies = [...allMovies];
+const moviesPerPage = 20;
 
-function renderMovies(){
+// ===============================
+// SAFE CHECK
+// ===============================
 
-allMovieGrid.innerHTML = "";
+function elementExists(element){
 
-const start = (currentPage - 1) * moviesPerPage;
+return element !== null;
 
-const end = start + moviesPerPage;
+}
 
-const pageMovies = filteredMovies.slice(start,end);
+// ===============================
+// START APP
+// ===============================
 
-pageMovies.forEach(movie => {
+document.addEventListener("DOMContentLoaded",()=>{
 
-const movieCard = `
+console.log("FILMY JOHN Loaded ✅");
 
-<div class="movie-card"
-data-language="${movie.language}"
-data-year="${movie.year || ""}">
+});
+// ===============================
+// CREATE MOVIE CARD
+// ===============================
 
-<img src="${movie.image}" alt="${movie.title}">
+function createMovieCard(movie){
+
+return `
+
+<div class="movie-card">
+
+<img
+src="${movie.image}"
+alt="${movie.title}">
+
+<div class="movie-info">
 
 <h3>${movie.title}</h3>
 
+<p>${movie.year}</p>
+
+<p>${movie.language}</p>
+
 <p>${movie.category}</p>
 
-<p class="movie-language">🌐 ${movie.language}</p>
+<a
+href="player.html?id=${movie.id}"
+class="watch-btn">
 
-<div class="movie-buttons">
+Watch Now
 
-<button
-class="download-btn"
-onclick="openDownloadPage(this)">
-
-<i class="fa-solid fa-download"></i>
-
-Download
-
-</button>
-
-<button
-class="more-btn"
-onclick="shareMovie()">
-
-<i class="fa-solid fa-share-nodes"></i>
-
-</button>
+</a>
 
 </div>
 
@@ -483,149 +96,336 @@ onclick="shareMovie()">
 
 `;
 
-allMovieGrid.insertAdjacentHTML("beforeend", movieCard);
+}
+
+// ===============================
+// RENDER MOVIES
+// ===============================
+
+function renderMovies(movieArray){
+
+if(!elementExists(movieGrid)) return;
+
+movieGrid.innerHTML="";
+
+movieArray.forEach(movie=>{
+
+movieGrid.innerHTML+=createMovieCard(movie);
 
 });
 
-const prevBtn = document.getElementById("prevPage");
-const nextBtn = document.getElementById("nextPage");
-const pageNumber = document.getElementById("pageNumber");
+}
+// ===============================
+// RENDER TRENDING MOVIES
+// ===============================
 
-function updatePagination(){
+function renderTrendingMovies() {
 
-if(pageNumber){
+    if (!elementExists(trendingGrid)) return;
 
-pageNumber.innerText =
-"Page " + currentPage;
+    trendingGrid.innerHTML = "";
+
+    const trendingMovies = allMovies.slice(0, 8);
+
+    trendingMovies.forEach(movie => {
+
+        trendingGrid.innerHTML += createMovieCard(movie);
+
+    });
 
 }
 
-if(prevBtn){
+// ===============================
+// RENDER LATEST MOVIES
+// ===============================
 
-prevBtn.disabled =
-(currentPage === 1);
+function renderLatestMovies() {
+
+    if (!elementExists(latestGrid)) return;
+
+    latestGrid.innerHTML = "";
+
+    const latestMovies = allMovies.slice(8, 16);
+
+    latestMovies.forEach(movie => {
+
+        latestGrid.innerHTML += createMovieCard(movie);
+
+    });
 
 }
 
-if(nextBtn){
+// ===============================
+// INITIAL LOAD
+// ===============================
 
-nextBtn.disabled =
-(currentPage * moviesPerPage >= filteredMovies.length);
+function initializeWebsite() {
+
+    renderTrendingMovies();
+
+    renderLatestMovies();
+
+    updatePagination(allMovies);
+
+}
+
+document.addEventListener("DOMContentLoaded", () => {
+
+    initializeWebsite();
+
+});
+// ===============================
+// SEARCH MOVIES
+// ===============================
+
+if (elementExists(movieSearch)) {
+
+movieSearch.addEventListener("input", function () {
+
+const searchText = this.value.toLowerCase().trim();
+
+const filteredMovies = allMovies.filter(movie =>
+
+movie.title.toLowerCase().includes(searchText) ||
+
+movie.category.toLowerCase().includes(searchText) ||
+
+movie.language.toLowerCase().includes(searchText)
+
+);
+
+renderMovies(filteredMovies);
+
+});
+
+}
+// ===============================
+// PAGINATION
+// ===============================
+
+function updatePagination(movieArray){
+
+const totalPages =
+Math.ceil(movieArray.length / moviesPerPage);
+
+const start =
+(currentPage - 1) * moviesPerPage;
+
+const end =
+start + moviesPerPage;
+
+const currentMovies =
+movieArray.slice(start, end);
+
+renderMovies(currentMovies);
+
+if(elementExists(pageNumber)){
+
+pageNumber.textContent =
+`Page ${currentPage} / ${totalPages}`;
 
 }
 
 }
 
-if(prevBtn){
+if(elementExists(prevPage)){
 
-prevBtn.onclick = function(){
+prevPage.addEventListener("click",()=>{
 
 if(currentPage > 1){
 
 currentPage--;
 
-renderMovies();
-
-updatePagination();
+updatePagination(allMovies);
 
 }
 
-};
+});
 
 }
 
-if(nextBtn){
+if(elementExists(nextPage)){
 
-nextBtn.onclick = function(){
+nextPage.addEventListener("click",()=>{
 
-if(currentPage * moviesPerPage < filteredMovies.length){
+const totalPages =
+Math.ceil(allMovies.length / moviesPerPage);
+
+if(currentPage < totalPages){
 
 currentPage++;
 
-renderMovies();
-
-updatePagination();
+updatePagination(allMovies);
 
 }
 
-};
+});
+
+}
+// ===============================
+// BANNER SLIDER
+// ===============================
+
+const bannerImage =
+document.getElementById("bannerImage");
+
+const bannerImages = [
+
+"images/banner1.jpg",
+
+"images/banner2.jpg",
+
+"images/banner3.jpg",
+
+"images/banner4.jpg",
+
+"images/banner5.jpg"
+
+];
+
+let bannerIndex = 0;
+
+function changeBanner(){
+    
+if(!bannerImage) return;
+
+bannerImage.src =
+bannerImages[bannerIndex];
+updateDots();
+    
+bannerIndex++;
+
+if(bannerIndex >= bannerImages.length){
+
+bannerIndex = 0;
 
 }
 
-renderMovies();
-updatePagination();
+}
 
-} // allMovieGrid END
+setInterval(changeBanner,4000);
 
-// ==========================================
-// VIEW ALL SEARCH (FINAL)
-// ==========================================
+changeBanner();
+// ===============================
+// BANNER BUTTONS
+// ===============================
 
-const movieSearch = document.getElementById("movieSearch");
+const prevBanner =
+document.querySelector(".banner-btn.prev");
 
-if (movieSearch) {
+const nextBanner =
+document.querySelector(".banner-btn.next");
 
-    movieSearch.addEventListener("keyup", function () {
+const dots =
+document.querySelectorAll(".banner-dots span");
 
-        const value = this.value.toLowerCase();
+// ===============================
+// UPDATE DOTS
+// ===============================
 
-        filteredMovies = allMovies.filter(movie => {
+function updateDots(){
 
-            return (
-                movie.title.toLowerCase().includes(value) ||
-                movie.category.toLowerCase().includes(value) ||
-                movie.language.toLowerCase().includes(value)
-            );
+dots.forEach((dot,index)=>{
 
-        });
+dot.classList.remove("active");
+
+if(index===bannerIndex){
+
+dot.classList.add("active");
+
+}
+
+});
+
+}
+
+// ===============================
+// NEXT BANNER
+// ===============================
+
+function nextBannerImage(){
+
+bannerIndex++;
+
+if(bannerIndex>=bannerImages.length){
+
+bannerIndex=0;
+
+}
+
+bannerImage.src=bannerImages[bannerIndex];
+
+updateDots();
+
+}
+
+// ===============================
+// PREVIOUS BANNER
+// ===============================
+
+function prevBannerImage(){
+
+bannerIndex--;
+
+if(bannerIndex<0){
+
+bannerIndex=bannerImages.length-1;
+
+}
+
+bannerImage.src=bannerImages[bannerIndex];
+
+updateDots();
+
+}
+
+// ===============================
+// BUTTON EVENTS
+// ===============================
+
+if(prevBanner){
+
+prevBanner.addEventListener("click",prevBannerImage);
+
+}
+
+if(nextBanner){
+
+nextBanner.addEventListener("click",nextBannerImage);
+
+}
+// ===============================
+// FINAL INITIALIZATION
+// ===============================
+
+window.addEventListener("load", () => {
+
+    if (typeof allMovies !== "undefined") {
 
         currentPage = 1;
 
-        renderMovies();
-        updatePagination();
+        updatePagination(allMovies);
 
-    });
+        renderTrendingMovies();
 
-}
-// ==========================================
-// VIEW ALL SEARCH
-// ==========================================
+        renderLatestMovies();
 
-const movieSearch = document.getElementById("movieSearch");
+    }
 
-if (movieSearch) {
+    updateDots();
 
-    movieSearch.addEventListener("keyup", function () {
+});
 
-        const value = this.value.toLowerCase();
+// ===============================
+// AUTO SLIDER
+// ===============================
 
-        document.querySelectorAll("#allMovieGrid .movie-card").forEach(card => {
+setInterval(() => {
 
-            const title =
-                card.querySelector("h3").innerText.toLowerCase();
+    nextBannerImage();
 
-            const category =
-                card.querySelector("p").innerText.toLowerCase();
+}, 4000);
 
-            const language =
-                card.dataset.language.toLowerCase();
-
-            if (
-                title.includes(value) ||
-                category.includes(value) ||
-                language.includes(value)
-            ) {
-
-                card.style.display = "";
-
-            } else {
-
-                card.style.display = "none";
-
-            }
-
-        });
-
-    });
-
-}
+// ===============================
+// END OF FILE
+// ===============================
