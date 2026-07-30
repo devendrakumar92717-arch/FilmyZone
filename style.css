@@ -227,17 +227,38 @@ MOVIE SECTION
 }
 
 .download-btn{
+    flex:1;
+    height:42px;
+    border:none;
+    border-radius:10px;
     background:#0d6efd;
     color:#fff;
-    padding:8px 12px;
-    border-radius:8px;
+    font-size:15px;
+    font-weight:600;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    gap:6px;
+    cursor:pointer;
 }
 
 .more-btn{
-    background:#f0f0f0;
-    padding:8px 12px;
-    border-radius:8px;
+    width:42px;
+    height:42px;
+    margin-left:8px;
+    border:none;
+    border-radius:10px;
+    background:rgba(255,255,255,.18);
+    backdrop-filter:blur(10px);
+    -webkit-backdrop-filter:blur(10px);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    cursor:pointer;
+    color:#ffffff;
+    font-size:18px;
 }
+
 /* =========================
 FLOATING SOCIAL BUTTONS
 ========================= */
