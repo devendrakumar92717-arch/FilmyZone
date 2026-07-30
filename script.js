@@ -429,3 +429,31 @@ setInterval(() => {
 // ===============================
 // END OF FILE
 // ===============================
+// =========================
+// MOVIE DETAILS OPEN
+// =========================
+
+const movieCards = document.querySelectorAll(".movie-card");
+const movieDetails = document.querySelector(".movie-details");
+
+if (movieDetails) {
+    movieDetails.style.display = "none";
+}
+
+movieCards.forEach(card => {
+
+    card.addEventListener("click", () => {
+
+        if (movieDetails) {
+
+            movieDetails.style.display = "block";
+
+            movieDetails.scrollIntoView({
+                behavior: "smooth"
+            });
+
+        }
+
+    });
+
+});
