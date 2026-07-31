@@ -256,7 +256,7 @@ console.log("Search Working...");
     .trim();
 
 
-    filteredMovies = movies.filter(movie=>{
+    filteredMovies = allMovies.filter(movie=>{
 
         return (
 
