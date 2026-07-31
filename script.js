@@ -246,7 +246,8 @@ function updatePagination(){
 // ==========================================
 
 function searchAllMovies(){
-
+console.log("Search Working...");
+    
     if(!searchInput) return;
 
     const keyword =
