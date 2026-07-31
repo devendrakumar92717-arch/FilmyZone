@@ -300,6 +300,14 @@ if(searchInput){
 
 }
 
+const searchBtn = document.getElementById("searchBtn");
+
+if(searchBtn){
+
+    searchBtn.addEventListener("click", searchAllMovies);
+
+}
+
 // ==========================================
 // END OF PART 5/8
 // ==========================================
