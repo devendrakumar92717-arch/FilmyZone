@@ -104,7 +104,13 @@ return `
 
 <div class="movie-card">
 
+    <div class="movie-poster">
+
+    ${movie.badge ? `<span class="movie-badge">${movie.badge}</span>` : ""}
+
     <img src="${movie.image}" alt="${movie.title}">
+
+</div>
 
     <div class="movie-info">
 
