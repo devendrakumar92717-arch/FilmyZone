@@ -18,7 +18,7 @@ const MOVIES_PER_PAGE = 20;
 
 let currentPage = 1;
 let filteredMovies = [];
-
+let currentSearch = "";
 // ==========================================
 // HOME PAGE ELEMENTS
 // ==========================================
