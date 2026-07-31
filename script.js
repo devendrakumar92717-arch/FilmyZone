@@ -387,7 +387,7 @@ if(nextBtn){
 document.addEventListener(
 "DOMContentLoaded",
 ()=>{
-
+console.log(movies);
 
     // All Movies Page
 
