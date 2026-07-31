@@ -15,6 +15,7 @@ const movies = [
 {
     id:1,
     title:"KGF Chapter 2",
+    badge:"NEW UPDATE",
     image:"images/movies/kgf2.jpg",
     category:"Action",
     language:"Hindi",
@@ -28,6 +29,7 @@ const movies = [
 {
     id:2,
     title:"Salaar",
+    badge:"NEW UPDATE",
     image:"images/movies/salaar.jpg",
     category:"Action",
     language:"Hindi",
