@@ -36,8 +36,7 @@ document.getElementById("latestMovieGrid");
 const movieGrid =
 document.getElementById("allMovieGrid");
 
-const searchInput =
-document.getElementById("movieSearch");
+const searchInput = document.getElementById("searchInput");
 
 const prevBtn =
 document.getElementById("prevPage");
