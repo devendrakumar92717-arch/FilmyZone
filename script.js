@@ -242,75 +242,98 @@ function updatePagination(){
 // END OF PART 4/8
 // ==========================================
 // ==========================================
+// UNIVERSAL SEARCH
+// ==========================================
+
+let currentSearch = "";
+
+// ==========================================
 // SEARCH MOVIES
 // ==========================================
 
-function searchAllMovies(){
-console.log("Search Working...");
-    
-    if(!searchInput) return;
+function searchAllMovies() {
 
-    const keyword =
-    searchInput.value
-    .toLowerCase()
-    .trim();
+    if (!searchInput) return;
 
+    currentSearch = searchInput.value.trim();
 
-    filteredMovies = allMovies.filter(movie=>{
+    const keyword = currentSearch.toLowerCase();
+
+    filteredMovies = movies.filter(movie => {
 
         return (
 
-            movie.title
-            .toLowerCase()
-            .includes(keyword)
+            movie.title.toLowerCase().includes(keyword) ||
 
-            ||
+            movie.language.toLowerCase().includes(keyword) ||
 
-            movie.language
-            .toLowerCase()
-            .includes(keyword)
+            movie.category.toLowerCase().includes(keyword) ||
 
-            ||
-
-            movie.category
-            .toLowerCase()
-            .includes(keyword)
+            movie.year.toString().includes(keyword)
 
         );
 
     });
-
 
     currentPage = 1;
 
     renderMovies();
 
 }
-
-
 // ==========================================
 // SEARCH INPUT EVENT
 // ==========================================
 
-if(searchInput){
-
-    console.log("Search Input Found ✅");
+if (searchInput) {
 
     searchInput.addEventListener("input", searchAllMovies);
 
+    searchInput.addEventListener("keypress", function(e) {
+
+        if (e.key === "Enter") {
+
+            searchAllMovies();
+
+        }
+
+    });
+
 }
+
+// ==========================================
+// SEARCH BUTTON EVENT
+// ==========================================
 
 const searchBtn = document.getElementById("searchBtn");
 
-if(searchBtn){
+if (searchBtn) {
 
     searchBtn.addEventListener("click", searchAllMovies);
 
 }
+// ==========================================
+// INITIALIZE WEBSITE
+// ==========================================
 
-// ==========================================
-// END OF PART 5/8
-// ==========================================
+document.addEventListener("DOMContentLoaded", () => {
+
+    filteredMovies = [...movies];
+
+    // All Movies Page
+    if (movieGrid) {
+        renderMovies();
+    }
+
+    // Home Page
+    if (trendingGrid) {
+        renderTrendingMovies();
+    }
+
+    if (latestGrid) {
+        renderLatestMovies();
+    }
+
+});
 // ==========================================
 // PAGINATION
 // ==========================================
