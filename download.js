@@ -60,3 +60,13 @@ if(movie){
     title.textContent = "Movie Not Found";
 
 }
+
+// ==========================================
+// DEBUG
+// ==========================================
+
+console.log("=================================");
+console.log("FILMYZONE Download Page");
+console.log("Movie ID :", movieId);
+console.log("Movie :", movie);
+console.log("=================================");
