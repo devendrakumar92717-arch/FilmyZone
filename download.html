@@ -1,45 +1,71 @@
-<!DOCTYPE html>
-<html lang="en">
+<!-- ==========================================
+DOWNLOAD PAGE
+========================================== -->
 
-<head>
+<section class="download-container">
 
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <div class="download-card">
 
-<title>Download Movie - Filmyzone</title>
+        <img
+        id="moviePoster"
+        class="download-poster"
+        src=""
+        alt="Movie">
 
-<link rel="stylesheet" href="style.css">
+        <h2 id="movieTitle">
+            Loading...
+        </h2>
 
-<link rel="stylesheet"
-href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css">
+        <div class="quality-box">
 
-</head>
+            <div class="quality-item">
 
-<body>
-<section class="download-page">
+                <h3>🟢 Normal HD</h3>
 
-    <img src="images/movies/kgf2.jpg" alt="KGF Chapter 2">
+                <p id="size720">
+                    Size : --
+                </p>
 
-    <h1>KGF Chapter 2</h1>
+                <button id="download720">
 
-    <p>Select Download Quality</p>
+                    ⬇ Download
 
-    <div class="download-quality">
+                </button>
 
-        <button>📥 480p</button>
+            </div>
 
-        <button>📥 720p HD</button>
+            <div class="quality-item">
 
-        <button>📥 1080p Full HD</button>
+                <h3>🔵 Full HD</h3>
 
-        <button>📥 4K UHD</button>
+                <p id="size1080">
+                    Size : --
+                </p>
+
+                <button id="download1080">
+
+                    ⬇ Download
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div class="download-note">
+
+            ⚠️ Fast Internet Recommended
+
+        </div>
+
+        <button
+        class="back-btn"
+        onclick="history.back()">
+
+            ⬅ Back
+
+        </button>
 
     </div>
 
 </section>
-<a href="index.html" class="back-btn">
-    <i class="fa-solid fa-arrow-left"></i> Back to Home
-</a>
-</body>
-
-</html>
