@@ -294,6 +294,11 @@ console.log("Search Working...");
 
 if(searchInput){
 
+    console.log("Search Input Found ✅");
+
+    searchInput.addEventListener("input", searchAllMovies);
+
+}
     searchInput.addEventListener(
         "input",
         searchAllMovies
