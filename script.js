@@ -299,13 +299,6 @@ if(searchInput){
     searchInput.addEventListener("input", searchAllMovies);
 
 }
-    searchInput.addEventListener(
-        "input",
-        searchAllMovies
-    );
-
-}
-
 
 // ==========================================
 // END OF PART 5/8
