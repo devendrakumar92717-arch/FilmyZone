@@ -254,48 +254,27 @@ function searchAllMovies() {
 
     if (!searchInput) return;
 
-    currentSearch = searchInput.value.trim().toLowerCase();
+    currentSearch = searchInput.value.trim();
+
+    const keyword = currentSearch.toLowerCase();
 
     filteredMovies = movies.filter(movie => {
 
         return (
-            movie.title.toLowerCase().includes(currentSearch) ||
-            movie.language.toLowerCase().includes(currentSearch) ||
-            movie.category.toLowerCase().includes(currentSearch) ||
-            movie.year.toString().includes(currentSearch)
+            movie.title.toLowerCase().includes(keyword) ||
+            movie.language.toLowerCase().includes(keyword) ||
+            movie.category.toLowerCase().includes(keyword) ||
+            movie.year.toString().includes(keyword)
         );
 
     });
 
     currentPage = 1;
 
-    // All Movies Page
-    if (movieGrid) {
-        renderMovies();
-    }
-
-    // Home Page
-    if (trendingGrid) {
-
-        trendingGrid.innerHTML = "";
-
-        filteredMovies.forEach(movie => {
-            trendingGrid.innerHTML += createMovieCard(movie);
-        });
-
-    }
-
-    if (latestGrid) {
-
-        latestGrid.innerHTML = "";
-
-        filteredMovies.forEach(movie => {
-            latestGrid.innerHTML += createMovieCard(movie);
-        });
-
-    }
+    renderMovies();
 
 }
+
 // ==========================================
 // SEARCH INPUT EVENT
 // ==========================================
