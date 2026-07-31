@@ -428,3 +428,18 @@ if(!Array.isArray(filteredMovies)){
 // ==========================================
 // END OF PART 7/8
 // ==========================================
+// ==========================================
+// FINAL LOGS
+// ==========================================
+
+console.log("=================================");
+console.log("FILMYZONE");
+console.log("script.js Final v2 Loaded ✅");
+console.log("Trending Movies :", trendingMovies.length);
+console.log("Latest Movies :", latestMovies.length);
+console.log("Total Movies :", movies.length);
+console.log("=================================");
+
+// ==========================================
+// END OF FILE
+// ==========================================
