@@ -7,6 +7,7 @@
 const params = new URLSearchParams(window.location.search);
 
 const movieId = Number(params.get("id"));
+alert("Movie ID = " + movieId);
 
 // ==========================================
 // FIND MOVIE
