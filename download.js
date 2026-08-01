@@ -18,14 +18,29 @@ const movie = movies.find(item => item.id === movieId);
 // ELEMENTS
 // ==========================================
 
-const poster = document.getElementById("moviePoster");
-const title = document.getElementById("movieTitle");
+const moviePoster =
+document.getElementById("moviePoster");
 
-const size720 = document.getElementById("size720");
-const size1080 = document.getElementById("size1080");
+const movieTitle =
+document.getElementById("movieTitle");
 
-const btn720 = document.getElementById("download720");
-const btn1080 = document.getElementById("download1080");
+const movieYear =
+document.getElementById("movieYear");
+
+const movieLanguage =
+document.getElementById("movieLanguage");
+
+const size720 =
+document.getElementById("size720");
+
+const size1080 =
+document.getElementById("size1080");
+
+const download720 =
+document.getElementById("download720");
+
+const download1080 =
+document.getElementById("download1080");
 
 // ==========================================
 // LOAD MOVIE
@@ -33,9 +48,15 @@ const btn1080 = document.getElementById("download1080");
 
 if(movie){
 
-    poster.src = movie.image;
+    moviePoster.src = movie.image;
 
-    title.textContent = movie.title;
+    movieTitle.textContent = movie.title;
+
+    movieYear.textContent =
+    "Year : " + movie.year;
+
+    movieLanguage.textContent =
+    "Language : " + movie.language;
 
     size720.textContent =
     "Size : " + movie.size720;
@@ -43,21 +64,59 @@ if(movie){
     size1080.textContent =
     "Size : " + movie.size1080;
 
-    btn720.onclick = () => {
+}
 
-        window.open(movie.normalHD,"_blank");
+// ==========================================
+// DOWNLOAD BUTTONS
+// ==========================================
 
-    };
+download720.addEventListener("click", () => {
 
-    btn1080.onclick = () => {
+    if(movie.normalHD){
 
-        window.open(movie.fullHD,"_blank");
+        window.open(movie.normalHD, "_blank");
 
-    };
+    }else{
 
-}else{
+        alert("Normal HD Download Link Not Available.");
 
-    title.textContent = "Movie Not Found";
+    }
+
+});
+
+download1080.addEventListener("click", () => {
+
+    if(movie.fullHD){
+
+        window.open(movie.fullHD, "_blank");
+
+    }else{
+
+        alert("Full HD Download Link Not Available.");
+
+    }
+
+});
+
+// ==========================================
+// MOVIE NOT FOUND
+// ==========================================
+
+else{
+
+    movieTitle.textContent = "Movie Not Found";
+
+    movieYear.textContent = "";
+
+    movieLanguage.textContent = "";
+
+    size720.textContent = "Size : --";
+
+    size1080.textContent = "Size : --";
+
+    download720.disabled = true;
+
+    download1080.disabled = true;
 
 }
 
@@ -66,7 +125,7 @@ if(movie){
 // ==========================================
 
 console.log("=================================");
-console.log("FILMYZONE Download Page");
+console.log("FILMYZONE Download System");
 console.log("Movie ID :", movieId);
 console.log("Movie :", movie);
 console.log("=================================");
