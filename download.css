@@ -2,91 +2,237 @@
 DOWNLOAD PAGE
 ========================================== */
 
-.download-container{
+body{
 
-    width:100%;
-    min-height:100vh;
+    margin:0;
+    padding:0;
+
+    background:#0f1115;
+
+    font-family:Arial,sans-serif;
+
+}
+
+.download-header{
+
+    height:60px;
 
     display:flex;
-    justify-content:center;
+
     align-items:center;
 
-    padding:20px;
+    justify-content:space-between;
+
+    padding:0 20px;
+
+    background:#181b22;
+
+    color:#fff;
+
+}
+
+.back-btn{
+
+    color:#fff;
+
+    text-decoration:none;
+
+    font-size:22px;
+
+}
+
+.download-section{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    padding:30px 15px;
 
 }
 
 .download-card{
 
     width:100%;
-    max-width:420px;
 
-    background:#161616;
+    max-width:430px;
 
-    border-radius:16px;
+    background:#1b1f27;
+
+    border-radius:18px;
 
     padding:20px;
 
-    text-align:center;
-
-    box-shadow:0 0 15px rgba(0,0,0,.4);
+    box-shadow:0 10px 25px rgba(0,0,0,.45);
 
 }
 
-.download-poster{
+.poster-area{
+
+    display:flex;
+
+    justify-content:center;
+
+}
+
+.poster-area img{
 
     width:180px;
+
     border-radius:12px;
 
-    margin-bottom:15px;
+}
+
+.movie-info{
+
+    text-align:center;
+
+    margin-top:18px;
 
 }
 
-.download-card h2{
+.movie-info h2{
 
     color:#fff;
-    margin-bottom:20px;
+
+    margin:0;
 
 }
 
-.quality-item{
+.movie-info p{
 
-    background:#222;
+    color:#bdbdbd;
+
+    margin:8px 0;
+
+}
+
+.quality-title{
+
+    color:#fff;
+
+    font-size:18px;
+
+    font-weight:bold;
+
+    text-align:center;
+
+    margin:25px 0 15px;
+
+}
+/* ==========================================
+QUALITY CARD
+========================================== */
+
+.quality-card{
+
+    display:flex;
+
+    justify-content:space-between;
+
+    align-items:center;
+
+    background:#252b36;
+
+    border-radius:12px;
 
     padding:15px;
 
     margin-bottom:15px;
 
-    border-radius:10px;
-
 }
 
-.quality-item h3{
+.quality-left h3{
 
     color:#fff;
 
-    margin-bottom:8px;
+    margin:0 0 8px;
+
+    font-size:18px;
 
 }
 
-.quality-item p{
+.quality-left p{
 
-    color:#bbb;
+    color:#cfcfcf;
 
-    margin-bottom:10px;
+    margin:0;
+
+    font-size:14px;
 
 }
 
-.quality-item button{
+.download-btn{
 
-    width:100%;
+    background:#0d6efd;
 
-    padding:12px;
+    color:#fff;
 
     border:none;
 
     border-radius:8px;
 
-    background:#0d6efd;
+    padding:12px 20px;
+
+    cursor:pointer;
+
+    font-size:15px;
+
+    font-weight:bold;
+
+    transition:.3s;
+
+}
+
+.download-btn:hover{
+
+    background:#0b5ed7;
+
+}
+
+.download-note{
+
+    margin-top:20px;
+
+    padding:12px;
+
+    background:#222831;
+
+    border-radius:10px;
+
+    text-align:center;
+
+}
+
+.download-note p{
+
+    color:#ffcc00;
+
+    margin:5px 0;
+
+    font-size:14px;
+
+}
+
+.bottom-buttons{
+
+    margin-top:20px;
+
+}
+
+.back-page-btn{
+
+    width:100%;
+
+    height:45px;
+
+    border:none;
+
+    border-radius:10px;
+
+    background:#444;
 
     color:#fff;
 
@@ -96,30 +242,44 @@ DOWNLOAD PAGE
 
 }
 
-.download-note{
+.back-page-btn:hover{
 
-    color:#ffcc00;
-
-    margin:20px 0;
-
-    font-size:14px;
+    background:#666;
 
 }
 
-.back-btn{
+/* ==========================================
+MOBILE
+========================================== */
+
+@media(max-width:480px){
+
+.download-card{
+
+    padding:15px;
+
+}
+
+.poster-area img{
+
+    width:160px;
+
+}
+
+.quality-card{
+
+    flex-direction:column;
+
+    gap:12px;
+
+    text-align:center;
+
+}
+
+.download-btn{
 
     width:100%;
 
-    padding:12px;
-
-    border:none;
-
-    border-radius:8px;
-
-    background:#444;
-
-    color:#fff;
-
-    cursor:pointer;
+}
 
 }
