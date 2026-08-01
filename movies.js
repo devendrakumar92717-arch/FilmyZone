@@ -11,6 +11,19 @@
 // ==========================================
 
 const movies = [
+{
+    id: 0,
+    title: "Animal",
+    badge: "NEW UPDATE",
+    image: "images/movies/InShot_20260801_232041325.jpg",
+    category: "Action / Crime",
+    language: "Hindi",
+    year: "2023",
+    normalHD: "https://example.com/animal720",
+    fullHD: "https://example.com/animal1080",
+    size720: "1.8 GB",
+    size1080: "3.7 GB"
+},
 
 {
     id:1,
