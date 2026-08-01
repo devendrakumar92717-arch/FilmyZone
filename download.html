@@ -1,77 +1,209 @@
-<!-- ==========================================
-DOWNLOAD PAGE
-========================================== -->
+<!DOCTYPE html>
+<html lang="en">
 
-<section class="download-container">
+<head>
 
-    <div class="download-card">
+<meta charset="UTF-8">
 
-        <img
-        id="moviePoster"
-        class="download-poster"
-        src=""
-        alt="Movie">
+<meta name="viewport"
+content="width=device-width, initial-scale=1.0">
 
-        <h2 id="movieTitle">
-            Loading...
-        </h2>
+<title>Download Movie</title>
 
-        <div class="quality-box">
+<link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="download.css">
 
-            <div class="quality-item">
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
-                <h3>🟢 Normal HD</h3>
+</head>
 
-                <p id="size720">
-                    Size : --
-                </p>
+<body>
 
-                <button id="download720">
+<!-- ==============================
+HEADER
+============================== -->
 
-                    ⬇ Download
+<header class="download-header">
 
-                </button>
+<a href="javascript:history.back()"
+class="back-btn">
 
-            </div>
+<i class="fa-solid fa-arrow-left"></i>
 
-            <div class="quality-item">
+</a>
 
-                <h3>🔵 Full HD</h3>
+<h2>
 
-                <p id="size1080">
-                    Size : --
-                </p>
+Download Movie
 
-                <button id="download1080">
+</h2>
 
-                    ⬇ Download
+<div></div>
 
-                </button>
+</header>
 
-            </div>
+<!-- ==============================
+DOWNLOAD CARD
+============================== -->
 
-        </div>
+<section class="download-section">
 
-        <div class="download-note">
+<div class="download-card">
 
-            ⚠️ Fast Internet Recommended
+<div class="poster-area">
 
-        </div>
+<img
+id="moviePoster"
+src=""
+alt="Movie Poster">
 
-        <button
-        class="back-btn"
-        onclick="history.back()">
+</div>
 
-            ⬅ Back
+<div class="movie-info">
 
-        </button>
+<h2 id="movieTitle">
 
-    </div>
+Loading...
+
+</h2>
+
+<p id="movieYear">
+
+Loading...
+
+</p>
+
+<p id="movieLanguage">
+
+Loading...
+
+</p>
+
+</div>
+
+<div class="quality-title">
+
+Choose Download Quality
+
+</div>
+<!-- ==============================
+NORMAL HD
+============================== -->
+
+<div class="quality-card">
+
+<div class="quality-left">
+
+<h3>🟢 Normal HD</h3>
+
+<p id="size720">
+
+Size : --
+
+</p>
+
+</div>
+
+<div class="quality-right">
+
+<button
+id="download720"
+class="download-btn">
+
+<i class="fa-solid fa-download"></i>
+
+Download
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ==============================
+FULL HD
+============================== -->
+
+<div class="quality-card">
+
+<div class="quality-left">
+
+<h3>🔵 Full HD</h3>
+
+<p id="size1080">
+
+Size : --
+
+</p>
+
+</div>
+
+<div class="quality-right">
+
+<button
+id="download1080"
+class="download-btn">
+
+<i class="fa-solid fa-download"></i>
+
+Download
+
+</button>
+
+</div>
+
+</div>
+
+<!-- ==============================
+DOWNLOAD NOTE
+============================== -->
+
+<div class="download-note">
+
+<p>
+
+⚠️ Fast Internet Recommended
+
+</p>
+
+<p>
+
+Use VLC / MX Player
+
+</p>
+
+</div>
+<!-- ==============================
+BACK BUTTON
+============================== -->
+
+<div class="bottom-buttons">
+
+<button
+class="back-page-btn"
+onclick="history.back()">
+
+<i class="fa-solid fa-arrow-left"></i>
+
+Back
+
+</button>
+
+</div>
+
+</div>
 
 </section>
 
+<!-- ==============================
+SCRIPTS
+============================== -->
+
 <script src="movies.js"></script>
+
 <script src="download.js"></script>
 
 </body>
+
 </html>
