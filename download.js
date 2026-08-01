@@ -45,8 +45,7 @@ document.getElementById("download1080");
 // ==========================================
 // LOAD MOVIE
 // ==========================================
-
-if(movie){
+if (movie) {
 
     moviePoster.src = movie.image;
 
@@ -63,6 +62,18 @@ if(movie){
 
     size1080.textContent =
     "Size : " + movie.size1080;
+
+} else {
+
+    movieTitle.textContent = "Movie Not Found";
+
+    movieYear.textContent = "";
+
+    movieLanguage.textContent = "";
+
+    size720.textContent = "--";
+
+    size1080.textContent = "--";
 
 }
 
