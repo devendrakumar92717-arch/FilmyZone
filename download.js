@@ -83,7 +83,7 @@ if (movie) {
 
 download720.addEventListener("click", () => {
 
-    if(movie.normalHD){
+    if(movie && movie.normalHD){
 
         window.open(movie.normalHD, "_blank");
 
@@ -97,7 +97,7 @@ download720.addEventListener("click", () => {
 
 download1080.addEventListener("click", () => {
 
-    if(movie.fullHD){
+    if(movie && movie.fullHD){
 
         window.open(movie.fullHD, "_blank");
 
@@ -113,23 +113,6 @@ download1080.addEventListener("click", () => {
 // MOVIE NOT FOUND
 // ==========================================
 
-else{
-
-    movieTitle.textContent = "Movie Not Found";
-
-    movieYear.textContent = "";
-
-    movieLanguage.textContent = "";
-
-    size720.textContent = "Size : --";
-
-    size1080.textContent = "Size : --";
-
-    download720.disabled = true;
-
-    download1080.disabled = true;
-
-}
 
 // ==========================================
 // DEBUG
