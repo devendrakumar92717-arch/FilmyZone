@@ -16,7 +16,7 @@ const movies = [
     id:1,
     title:"KGF Chapter 2",
     badge:"NEW UPDATE",
-    image:"images/movies/kgf2.jpg",
+    image:"images/movies/file_00000000c60c8208840cc13907b8d133.png",
     category:"Action",
     language:"Hindi",
     year:"2022",
